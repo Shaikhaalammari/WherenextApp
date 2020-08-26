@@ -6,6 +6,7 @@ const TripList = () => {
   const tripList = tripStore.trips.map((trip) => (
     <TripItem trip={trip} key={trip.id} />
   ));
+
   return (
     <Content>
       <List>{tripList}</List>

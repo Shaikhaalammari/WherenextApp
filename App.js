@@ -1,7 +1,7 @@
-import { StatusBar } from "expo-status-bar";
+import { StatusBar } from "expo-status-bar"; // remove unused imports
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native"; // remove unused imports
 import Home from "./components/Home";
 
 const theme = {
