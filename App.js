@@ -1,8 +1,8 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 import { ThemeProvider } from "styled-components";
-import { StyleSheet, Text, View } from "react-native";
-import Home from "./components/Home";
+import RootNavigator from "./components/Navigation";
 
 const theme = {
   light: {
@@ -22,11 +22,16 @@ const theme = {
     update: "#438a5e",
   },
 };
+const Stack = createStackNavigator();
+console.log("App -> Stack", Stack);
+const { Navigator, Screen } = createStackNavigator();
 
 export default function App() {
   return (
     <ThemeProvider theme={theme.light}>
-      <Home />
+      <NavigationContainer>
+        <RootNavigator />
+      </NavigationContainer>
     </ThemeProvider>
   );
 }

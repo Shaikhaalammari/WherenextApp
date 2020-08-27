@@ -1,6 +1,6 @@
 import React from "react";
-// Styling
-import { ImageBackground, View, Text } from "react-native";
+//Styling
+import { ImageBackground, View, Text, List } from "react-native";
 import {
   HomeBackground,
   TopStyling,
@@ -8,7 +8,7 @@ import {
   ButtonStyled,
 } from "./styles";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <HomeBackground
       source={{
@@ -22,8 +22,8 @@ const Home = () => {
         </Text>
       </TopStyling>
       <BottomStyling>
-        <ButtonStyled onPress={() => alert("Take me to my next destination ")}>
-          Explore
+        <ButtonStyled onPress={() => navigation.navigate("Trips")}>
+          Let's Explore ...
         </ButtonStyled>
       </BottomStyling>
     </HomeBackground>
