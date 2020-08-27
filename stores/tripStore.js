@@ -17,7 +17,7 @@ class TripStore {
   };
 }
 decorate(TripStore, {
-  Trips: observable,
+  trips: observable,
   loading: observable,
 });
 

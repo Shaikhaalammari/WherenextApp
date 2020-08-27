@@ -10,11 +10,9 @@ const DeleteButton = () => {
     history.push("/trips");
   };
   return (
-    <div>
-      <Button title="Delete the Trip" onPress={handleDelete}>
-        Delete
-      </Button>
-    </div>
+    <Button title="Delete the Trip" onPress={handleDelete}>
+      Delete
+    </Button>
   );
 };
 
