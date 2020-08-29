@@ -1,12 +1,13 @@
 import { decorate, observable } from "mobx";
+import { AsyncStorage } from "react-native";
 import instance from "./instance";
 import decode from "jwt-decode";
 
 class AuthStore {
   user = null;
 
-  setUser = (token) => {
-    // localStorage.setItem("myToken", token);
+  setUser = async (token) => {
+    await AsyncStorage.setItem("myToken", token);
     instance.defaults.headers.common.Authorization = `Bearer ${token}`;
     this.user = decode(token);
   };
@@ -31,24 +32,29 @@ class AuthStore {
       console.log("AuthStore -> signin -> error", error);
     }
   };
-  //   signout = () => {
-  //     delete instance.defaults.headers.common.Authorization;
-  //     // localStorage.removeItem("myToken");
-  //     this.user = null;
-  //   };
-  //   checkForToken = () => {
-  //     // const token = localStorage.getItem("myToken");
-  //     console.log("hiii", token);
-  //     if (token) {
-  //       const currentTime = Date.now() / 1000;
-  //       const user = decode(token); // it was jwt_decode bs i made it decode to work!
-  //       if (user.expires >= currentTime) {
-  //         this.setUser(token);
-  //       } else {
-  //         this.signout();
-  //       }
-  //     }
-  //   };
+  signup = async (userData) => {
+    try {
+      const res = await instance.post("/signup", userData);
+      await this.setUser(res.data.token);
+      console.log(res.data.token);
+    } catch (error) {
+      console.log("AuthStore -> signup -> error", error);
+    }
+  };
+
+  checkForToken = async () => {
+    const token = await AsyncStorage.getItem("myToken");
+    console.log("hiii", token);
+    if (token) {
+      const currentTime = Date.now() / 1000;
+      const user = decode(token); // it was jwt_decode bs i made it decode to work!
+      if (user.expires >= currentTime) {
+        this.setUser(token);
+      } else {
+        this.signout();
+      }
+    }
+  };
 }
 
 decorate(AuthStore, {
@@ -56,6 +62,6 @@ decorate(AuthStore, {
 });
 
 const authStore = new AuthStore();
-// authStore.checkForToken();
+authStore.checkForToken();
 
 export default authStore;

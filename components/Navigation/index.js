@@ -10,7 +10,7 @@ import Signup from "../../authentication/Signup";
 const { Navigator, Screen } = createStackNavigator();
 const RootNavigator = () => {
   return (
-    <Navigator initialRouteName="Signup">
+    <Navigator initialRouteName="Home">
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen
         name="Trips"
