@@ -7,3 +7,8 @@ export const TripItemStyled = styled.Text`
   margin-bottom: 10;
   margin-left: 10;
 `;
+
+export const TripTextStyled = styled.Text`
+  text-align: center;
+  color: #99b898;
+`;
