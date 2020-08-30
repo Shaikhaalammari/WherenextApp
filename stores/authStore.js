@@ -1,56 +1,51 @@
 import { decorate, observable } from "mobx";
-import decode from "jwt-decode";
+
+import { AsyncStorage } from "react-native";
 import instance from "./instance";
-// import AsyncStorage from "@react-native-community/async-storage";
+import decode from "jwt-decode";
 
 class AuthStore {
   user = null;
 
-  setUser = (token) => {
-    // localStorage.setItem("myToken", token);
-    instance.defaults.headers.common.Authorization = `Bearer ${token}`;
-    this.user = decode(token);
+  setUser = async (token) => {
+    await AsyncStorage.setItem("myToken", token);
   };
 
-  //   signup = async (userData) => {
-  //     try {
-  //       const res = await instance.post("/signup", userData);
-  //       this.setUser(res.data.token);
-  //       console.log("AuthStore -> signup -> res.data.token", res.data.token);
-  //       //   console.log(res.data);
-  //     } catch (error) {
-  //       console.log("AuthStore -> signup -> error", error);
-  //     }
-  //   };
+  signup = async (userData) => {
+    try {
+      const res = await instance.post("/signup", userData);
+      this.setUser(res.data.token);
+      console.log("AuthStore -> signin -> res.data.token", res.data);
+    } catch (error) {
+      console.log("AuthStore -> signup -> error", error);
+    }
+  };
 
   signin = async (userData) => {
     try {
       const res = await instance.post("/signin", userData);
-      await this.setUser(res.data.token);
-      console.log("AuthStore -> signin -> res.data.token", res.data.token);
+
+      this.setUser(res.data.token);
+
+      console.log("authStore -> signin -> res.data", res.data);
     } catch (error) {
       console.log("AuthStore -> signin -> error", error);
     }
   };
 
-  //   signout = async () => {
-  //     delete instance.defaults.headers.common.Authorization;
-  //     this.user = null;
-  //     await AsyncStorage.removeItem("myToken");
-  //   };
-
-  //   checkForToken = async () => {
-  //     const token = await AsyncStorage.getItem("myToken");
-  //     if (token) {
-  //       const currentTime = Date.now() / 1000;
-  //       const user = decode(token);
-  //       if (user.exp >= currentTime) {
-  //         this.setUser(token);
-  //       } else {
-  //         this.signout();
-  //       }
-  //     }
-  //   };
+  checkForToken = async () => {
+    const token = await AsyncStorage.getItem("myToken");
+    console.log("hiii", token);
+    if (token) {
+      const currentTime = Date.now() / 1000;
+      const user = decode(token); // it was jwt_decode bs i made it decode to work!
+      if (user.expires >= currentTime) {
+        this.setUser(token);
+      } else {
+        this.signout();
+      }
+    }
+  };
 }
 
 decorate(AuthStore, {
@@ -58,5 +53,6 @@ decorate(AuthStore, {
 });
 
 const authStore = new AuthStore();
+authStore.checkForToken();
 
 export default authStore;
