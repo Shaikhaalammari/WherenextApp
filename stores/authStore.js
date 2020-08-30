@@ -1,4 +1,5 @@
 import { decorate, observable } from "mobx";
+
 import { AsyncStorage } from "react-native";
 import instance from "./instance";
 import decode from "jwt-decode";
@@ -6,11 +7,9 @@ import decode from "jwt-decode";
 class AuthStore {
   user = null;
 
+
   setUser = async (token) => {
     await AsyncStorage.setItem("myToken", token);
-    instance.defaults.headers.common.Authorization = `Bearer ${token}`;
-    this.user = decode(token);
-  };
 
   signup = async (userData) => {
     try {
@@ -22,9 +21,11 @@ class AuthStore {
     }
   };
 
+
   signin = async (userData) => {
     try {
       const res = await instance.post("/signin", userData);
+
       this.setUser(res.data.token);
 
       console.log("authStore -> signin -> res.data", res.data);
@@ -55,13 +56,16 @@ class AuthStore {
       }
     }
   };
-}
+
+   
 
 decorate(AuthStore, {
   user: observable,
 });
 
 const authStore = new AuthStore();
+<
 authStore.checkForToken();
+
 
 export default authStore;
