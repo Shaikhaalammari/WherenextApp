@@ -9,11 +9,15 @@ import tripStore from "../../stores/tripStore";
 import { TripItemStyled, TripTextStyled } from "./styles";
 import { Image, Thumbnail } from "native-base";
 import test from "../../test.jpg";
+import TripDetail from "../TripDetail";
 
-const TripItem = ({ trip }) => {
+const TripItem = ({ trip, navigation }) => {
   if (tripStore.loading) return <Spinner />;
+  //// WEEEE NEEEED A GOOD LOOKIN STYLING
   return (
-    <TripItemStyled>
+    <TripItemStyled
+      onPress={() => navigation.navigate("TripDetail", { trip: trip })}
+    >
       <Thumbnail
         style={{
           resizeMode: "center",
