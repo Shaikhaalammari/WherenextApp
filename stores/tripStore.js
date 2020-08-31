@@ -15,6 +15,7 @@ class TripStore {
       console.log("TripStore -> fetchTrip -> error", err);
     }
   };
+  // getTripsById = (tripId) => this.trips.find((trip) => trip.id === tripId);
 }
 decorate(TripStore, {
   trips: observable,

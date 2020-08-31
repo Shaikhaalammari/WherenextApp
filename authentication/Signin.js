@@ -9,13 +9,14 @@ import {
 } from "./styles";
 
 import authStore from "../stores/authStore";
-const Signin = () => {
+const Signin = ({ navigation }) => {
   const [user, setUser] = useState({
     username: "",
     password: "",
   });
-  const handleSubmit = () => {
-    authStore.signin(user);
+  const handleSubmit = async () => {
+    await authStore.signin(user);
+    if (authStore.user) navigation.replace("Home");
   };
   return (
     <AuthContainer>
@@ -32,7 +33,9 @@ const Signin = () => {
       <AuthButton onPress={handleSubmit}>
         <AuthButtonText>Sign in</AuthButtonText>
       </AuthButton>
-      <AuthOther>Click here to register!</AuthOther>
+      <AuthOther onPress={() => navigation.navigate("Signup")}>
+        Click here to register!
+      </AuthOther>
     </AuthContainer>
   );
 };
