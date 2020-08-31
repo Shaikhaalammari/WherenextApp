@@ -1,5 +1,4 @@
 import React from "react";
-import { Text } from "react-native";
 import { observer } from "mobx-react";
 
 //stores
@@ -7,8 +6,9 @@ import tripStore from "../../stores/tripStore";
 
 //styles
 import { TripItemStyled, TripTextStyled } from "./styles";
-import { Image, Thumbnail } from "native-base";
+import { Thumbnail } from "native-base";
 import test from "../../test.jpg";
+import DeleteButton from "../buttons/DeleteButton";
 
 const TripItem = ({ trip }) => {
   if (tripStore.loading) return <Spinner />;
@@ -23,6 +23,8 @@ const TripItem = ({ trip }) => {
         source={trip.image ? { uri: trip.image } : test}
       />
       <TripTextStyled>{trip.title}</TripTextStyled>
+
+      <DeleteButton tripId={trip.id} />
     </TripItemStyled>
   );
 };

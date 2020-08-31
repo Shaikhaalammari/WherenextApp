@@ -1,4 +1,6 @@
 import { decorate, observable } from "mobx";
+import axios from "axios";
+//stores
 import instance from "./instance";
 
 class TripStore {
@@ -8,11 +10,20 @@ class TripStore {
   fetchTrips = async () => {
     try {
       const res = await instance.get("/trips");
-      console.log("lol", res.data);
+      console.log(res.data);
       this.trips = res.data;
       this.loading = false;
     } catch (err) {
       console.log("TripStore -> fetchTrip -> error", err);
+    }
+  };
+  tripDelete = async (tripId) => {
+    try {
+      await instance.delete(`/trips/${tripId}`);
+
+      this.trips = this.trips.filter((trip) => trip.id !== +tripId);
+    } catch (error) {
+      console.log("TripStore -> deleteTrip -> error", error);
     }
   };
 }
