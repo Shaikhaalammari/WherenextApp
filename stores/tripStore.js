@@ -26,6 +26,7 @@ class TripStore {
       console.log("TripStore -> deleteTrip -> error", error);
     }
   };
+  // getTripsById = (tripId) => this.trips.find((trip) => trip.id === tripId);
 }
 decorate(TripStore, {
   trips: observable,

@@ -10,10 +10,13 @@ import { Thumbnail } from "native-base";
 import test from "../../test.jpg";
 import DeleteButton from "../buttons/DeleteButton";
 
-const TripItem = ({ trip }) => {
+const TripItem = ({ trip, navigation }) => {
   if (tripStore.loading) return <Spinner />;
+  //// WEEEE NEEEED A GOOD LOOKIN STYLING
   return (
-    <TripItemStyled>
+    <TripItemStyled
+      onPress={() => navigation.navigate("TripDetail", { trip: trip })}
+    >
       <Thumbnail
         style={{
           resizeMode: "center",
