@@ -1,19 +1,16 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
-import { Button } from "react-native";
+import { observer } from "mobx-react";
+//stors
+import tripStore from "../../stores/tripStore";
+//styles
+import { TrashIcon } from "./styles";
 
-const DeleteButton = () => {
-  const history = useHistory();
-
+const DeleteButton = ({ tripId, navigation }) => {
   const handleDelete = () => {
-    courseStore.deleteCourse(tripId);
-    history.push("/trips");
+    tripStore.tripDelete(tripId);
+    if (tripStore.tripId) navigation.navigate("Trips");
   };
-  return (
-    <Button title="Delete the Trip" onPress={handleDelete}>
-      Delete
-    </Button>
-  );
+  return <TrashIcon name="trash" type="Ionicons" onPress={handleDelete} />;
 };
 
-export default DeleteButton;
+export default observer(DeleteButton);

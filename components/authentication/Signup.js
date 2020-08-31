@@ -7,7 +7,7 @@ import {
   AuthButtonText,
 } from "./styles";
 
-import authStore from "../stores/authStore";
+import authStore from "../../stores/authStore";
 
 const Signup = () => {
   const [user, setUser] = useState({
