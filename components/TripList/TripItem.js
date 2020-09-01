@@ -1,17 +1,15 @@
 import React from "react";
-import { Text } from "react-native";
 import { observer } from "mobx-react";
-
-//stores
-import tripStore from "../../stores/tripStore";
 
 //styles
 import { TripItemStyled, TripTextStyled } from "./styles";
-import { Image, Thumbnail } from "native-base";
+import { Thumbnail, Right } from "native-base";
 import test from "../../test.jpg";
 
+// Buttons
+import UpdateButton from "../buttons/UpdateButton";
+
 const TripItem = ({ trip }) => {
-  if (tripStore.loading) return <Spinner />;
   return (
     <TripItemStyled>
       <Thumbnail
@@ -23,6 +21,9 @@ const TripItem = ({ trip }) => {
         source={trip.image ? { uri: trip.image } : test}
       />
       <TripTextStyled>{trip.title}</TripTextStyled>
+      <Right>
+        <UpdateButton trip={trip} />
+      </Right>
     </TripItemStyled>
   );
 };

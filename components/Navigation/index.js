@@ -4,13 +4,15 @@ import { createStackNavigator } from "@react-navigation/stack";
 //Components
 import Home from "../Home";
 import TripList from "../TripList";
-import Signin from "../../authentication/Signin";
-import Signup from "../../authentication/Signup";
+import Signin from "../authentication/Signin";
+import Signup from "../authentication/Signup";
+import AddTrip from "../AddTrip";
+import UpdateTrip from "../UpdateTrip";
 
 const { Navigator, Screen } = createStackNavigator();
 const RootNavigator = () => {
   return (
-    <Navigator initialRouteName="Signin">
+    <Navigator initialRouteName="Trips">
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen
         name="Trips"
@@ -25,6 +27,16 @@ const RootNavigator = () => {
       <Screen
         name="Signup"
         component={Signup}
+        options={{ headerShown: false }}
+      />
+      <Screen
+        name="Addtrip"
+        component={AddTrip}
+        options={{ headerShown: false }}
+      />
+      <Screen
+        name="Updatetrip"
+        component={UpdateTrip}
         options={{ headerShown: false }}
       />
     </Navigator>

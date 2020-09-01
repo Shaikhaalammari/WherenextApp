@@ -27,6 +27,20 @@ export const TripTextInput = styled.TextInput`
   border-bottom-width: 1px;
 `;
 
+export const AddButton = styled.TouchableOpacity`
+  align-self: stretch;
+  align-items: center;
+  padding: 20px;
+  background-color: #cfe5cf;
+  margin-top: 30px;
+`;
+
+export const AddButtonText = styled.Text`
+  color: #838383;
+
+  font-size: 18px;
+`;
+
 export const AuthOther = styled.Text`
   color: #99b898;
   margin-top: 15px;
