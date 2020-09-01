@@ -22,11 +22,13 @@ const AddTrip = ({ navigation }) => {
   });
 
   const handleSubmit = async () => {
+    // REVIEW: Since it's working delete console log
     // console.log("inside handle submit", trip);
     await tripStore.addTrip(trip);
     navigation.replace("Trips");
   };
 
+  // REVIEW: Remove commented out code
   //   const handleChange = async () => {
   //     await tripStore.updateTrip(trip);
   //     navigation.replace("Trips");

@@ -3,6 +3,7 @@ import AsyncStorage from "@react-native-community/async-storage";
 
 import instance from "./instance";
 import decode from "jwt-decode";
+// REVIEW: import is repeated.. delete one of them
 import AsyncStorage from "@react-native-community/async-storage";
 
 class AuthStore {
@@ -18,6 +19,7 @@ class AuthStore {
     try {
       const res = await instance.post("/signup", userData);
       this.setUser(res.data.token);
+      // REVIEW: Remove console log
       console.log("AuthStore -> signin -> res.data.token", res.data);
     } catch (error) {
       console.log("AuthStore -> signup -> error", error);
@@ -37,6 +39,7 @@ class AuthStore {
 
   checkForToken = async () => {
     const token = await AsyncStorage.getItem("myToken");
+    // REVIEW: Remove console log
     console.log("hiii", token);
     if (token) {
       const currentTime = Date.now() / 1000;

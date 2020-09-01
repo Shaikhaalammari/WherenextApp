@@ -12,7 +12,6 @@ import DeleteButton from "../buttons/DeleteButton";
 // Buttons
 import UpdateButton from "../buttons/UpdateButton";
 
-
 const TripItem = ({ trip, navigation }) => {
   if (tripStore.loading) return <Spinner />;
   //// WEEEE NEEEED A GOOD LOOKIN STYLING
@@ -22,6 +21,7 @@ const TripItem = ({ trip, navigation }) => {
       onPress={() => navigation.navigate("TripDetail", { trip: trip })}
     >
       <Thumbnail
+        // REVIEW: INLINE STYLINNNGG
         style={{
           resizeMode: "center",
           height: 100,
