@@ -18,9 +18,9 @@ class TripStore {
     }
   };
 
-
   addTrip = async (newTrip) => {
     try {
+      // Remove commented out console log since it's working
       // console.log("before", newTrip);
       const formData = new FormData();
       for (const key in newTrip) formData.append(key, newTrip[key]);

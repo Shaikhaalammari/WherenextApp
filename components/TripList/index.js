@@ -10,7 +10,7 @@ import TripItem from "../../components/TripList/TripItem";
 
 const TripList = ({ navigation }) => {
   if (tripStore.loading) return <Spinner />;
-
+  // Remove console log
   console.log("tripList ", tripStore.trips);
   const tripList = tripStore.trips.map((trip) => (
     <TripItem trip={trip} key={trip.id} navigation={navigation} />

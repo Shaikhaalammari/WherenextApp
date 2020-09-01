@@ -17,6 +17,7 @@ const Home = ({ navigation }) => {
       }}
     >
       <TopStyling>
+        {/* Move inline styling inside styles.js */}
         <Text style={{ color: "#fff", fontSize: 38, textAlign: "center" }}>
           Where Next..?
         </Text>

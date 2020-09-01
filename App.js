@@ -22,6 +22,8 @@ const theme = {
     update: "#438a5e",
   },
 };
+
+// REVIEW: This is extra stuff, you don't need it. Delete it.
 const Stack = createStackNavigator();
 console.log("App -> Stack", Stack);
 const { Navigator, Screen } = createStackNavigator();
