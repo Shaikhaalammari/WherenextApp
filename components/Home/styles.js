@@ -25,6 +25,12 @@ export const BottomStyling = styled.View`
 `;
 
 export const ButtonStyled = styled.Text`
-  font-size: 20;
+  font-size: 30;
   color: #fff;
+`;
+
+export const AuthOther = styled.Text`
+  color: #fff;
+  margin-top: 15px;
+  font-size: 20;
 `;

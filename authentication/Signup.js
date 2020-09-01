@@ -5,11 +5,12 @@ import {
   AuthTextInput,
   AuthButton,
   AuthButtonText,
+  AuthOther,
 } from "./styles";
 
 import authStore from "../stores/authStore";
 
-const Signup = () => {
+const Signup = ({ navigation }) => {
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -20,7 +21,7 @@ const Signup = () => {
 
   const handleSubmit = () => {
     authStore.signup(user);
-    if (authStore.user) navigation.replace("Home");
+    if (authStore.user) navigation.replace("Trips");
   };
 
   return (
@@ -55,6 +56,9 @@ const Signup = () => {
       <AuthButton onPress={handleSubmit}>
         <AuthButtonText>Sign up</AuthButtonText>
       </AuthButton>
+      <AuthOther onPress={() => navigation.navigate("Signin")}>
+        Already have an Acoount ? click here to Sign in
+      </AuthOther>
     </AuthContainer>
   );
 };

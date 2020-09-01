@@ -3,10 +3,11 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 //Components
 import Home from "../Home";
+import ProfileList from "../ProfileList";
 import TripList from "../TripList";
+import TripDetail from "../TripDetail";
 import Signin from "../../authentication/Signin";
 import Signup from "../../authentication/Signup";
-import TripDetail from "../TripDetail";
 
 const { Navigator, Screen } = createStackNavigator();
 const RootNavigator = () => {
@@ -32,6 +33,11 @@ const RootNavigator = () => {
       <Screen
         name="TripDetail"
         component={TripDetail}
+        options={{ headerShown: false }}
+      />
+      <Screen
+        name="Profile"
+        component={ProfileList}
         options={{ headerShown: false }}
       />
     </Navigator>

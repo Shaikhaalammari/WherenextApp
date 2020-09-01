@@ -32,14 +32,10 @@ class AuthStore {
       console.log("AuthStore -> signin -> error", error);
     }
   };
-  signup = async (userData) => {
-    try {
-      const res = await instance.post("/signup", userData);
-      await this.setUser(res.data.token);
-      console.log(res.data.token);
-    } catch (error) {
-      console.log("AuthStore -> signup -> error", error);
-    }
+
+  signout = () => {
+    delete instance.defaults.headers.common.Authorization;
+    this.user = null; // add a button for it somewhere ?
   };
 
   checkForToken = async () => {
