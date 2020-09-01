@@ -17,6 +17,38 @@ class TripStore {
       console.log("TripStore -> fetchTrip -> error", err);
     }
   };
+
+
+  addTrip = async (newTrip) => {
+    try {
+      // console.log("before", newTrip);
+      const formData = new FormData();
+      for (const key in newTrip) formData.append(key, newTrip[key]);
+      const res = await instance.post("/trips", formData);
+
+      this.trips.push(res.data);
+      // profile.trips.push(trip);
+    } catch (error) {
+      console.log("TripStore -> addTrip -> error", error);
+    }
+  };
+
+  updateTrip = async (updatedTrip) => {
+    try {
+      // const formData = new FormData();
+      // for (const key in updatedVendor) formData.append(key, updatedVendor[key]);
+
+      await instance.put(`/trips/${updatedTrip.id}`, updatedTrip);
+
+      const trip = this.trips.find((trip) => trip.id === updatedTrip.id);
+
+      for (const key in updatedTrip) trip[key] = updatedTrip[key];
+      // trip.image = URL.createObjectURL(updatedTrip.image);
+    } catch (error) {
+      console.log("TripStore -> updateTrip -> error", error);
+    }
+  };
+
   tripDelete = async (tripId) => {
     try {
       await instance.delete(`/trips/${tripId}`);
@@ -26,7 +58,6 @@ class TripStore {
       console.log("TripStore -> deleteTrip -> error", error);
     }
   };
-  // getTripsById = (tripId) => this.trips.find((trip) => trip.id === tripId);
 }
 decorate(TripStore, {
   trips: observable,

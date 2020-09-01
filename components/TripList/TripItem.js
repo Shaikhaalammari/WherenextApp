@@ -1,18 +1,22 @@
 import React from "react";
 import { observer } from "mobx-react";
 
-//stores
-import tripStore from "../../stores/tripStore";
-
 //styles
 import { TripItemStyled, TripTextStyled } from "./styles";
-import { Thumbnail } from "native-base";
+
+import { Thumbnail, Right } from "native-base";
+
 import test from "../../test.jpg";
 import DeleteButton from "../buttons/DeleteButton";
+
+// Buttons
+import UpdateButton from "../buttons/UpdateButton";
+
 
 const TripItem = ({ trip, navigation }) => {
   if (tripStore.loading) return <Spinner />;
   //// WEEEE NEEEED A GOOD LOOKIN STYLING
+
   return (
     <TripItemStyled
       onPress={() => navigation.navigate("TripDetail", { trip: trip })}
@@ -27,7 +31,10 @@ const TripItem = ({ trip, navigation }) => {
       />
       <TripTextStyled>{trip.title}</TripTextStyled>
 
-      <DeleteButton tripId={trip.id} />
+      <Right>
+        <UpdateButton trip={trip} />
+        <DeleteButton tripId={trip.id} />
+      </Right>
     </TripItemStyled>
   );
 };

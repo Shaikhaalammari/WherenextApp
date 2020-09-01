@@ -1,12 +1,11 @@
 import React from "react";
-import { Button, Alert } from "react-native";
+import { Button } from "react-native";
 
 const CreateButton = () => {
   return (
-    <Button
-      title="Add New Trip"
-      onPress={() => Alert.alert("Simple Button pressed")}
-    />
+    <>
+      <Button title="Add New Trip" onPress={() => openModal} />
+    </>
   );
 };
 
