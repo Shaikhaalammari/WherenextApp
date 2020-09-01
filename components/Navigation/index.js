@@ -8,11 +8,15 @@ import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
 import AddTrip from "../AddTrip";
 import UpdateTrip from "../UpdateTrip";
+import TripDetail from "../TripDetail";
+
 
 const { Navigator, Screen } = createStackNavigator();
 const RootNavigator = () => {
   return (
-    <Navigator initialRouteName="Trips">
+
+    <Navigator initialRouteName="Home">
+
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen
         name="Trips"
@@ -30,6 +34,7 @@ const RootNavigator = () => {
         options={{ headerShown: false }}
       />
       <Screen
+
         name="Addtrip"
         component={AddTrip}
         options={{ headerShown: false }}
@@ -37,6 +42,11 @@ const RootNavigator = () => {
       <Screen
         name="Updatetrip"
         component={UpdateTrip}
+      />
+ 
+      <Screen
+        name="TripDetail"
+        component={TripDetail}
         options={{ headerShown: false }}
       />
     </Navigator>
