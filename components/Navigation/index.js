@@ -9,18 +9,21 @@ import Signup from "../authentication/Signup";
 import AddTrip from "../AddTrip";
 import UpdateTrip from "../UpdateTrip";
 import TripDetail from "../TripDetail";
-
+import DiscoverList from "../DiscoverList";
 
 const { Navigator, Screen } = createStackNavigator();
 const RootNavigator = () => {
   return (
-
     <Navigator initialRouteName="Home">
-
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen
         name="Trips"
         component={TripList}
+        options={{ title: "Choose a Trip" }}
+      />
+      <Screen
+        name="Discovers"
+        component={DiscoverList}
         options={{ title: "Choose a Trip" }}
       />
       <Screen
@@ -34,16 +37,12 @@ const RootNavigator = () => {
         options={{ headerShown: false }}
       />
       <Screen
-
         name="Addtrip"
         component={AddTrip}
         options={{ headerShown: false }}
       />
-      <Screen
-        name="Updatetrip"
-        component={UpdateTrip}
-      />
- 
+      <Screen name="Updatetrip" component={UpdateTrip} />
+
       <Screen
         name="TripDetail"
         component={TripDetail}
