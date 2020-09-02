@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import { Icon } from "native-base";
 
 export const ProfileTextStyles = styled.Text`
   text-align: center;
@@ -12,4 +13,8 @@ export const ProfileItemStyles = styled.Text`
   margin-top: 20;
   margin-bottom: 10;
   margin-left: 10;
+`;
+
+export const ProfileSignoutBtn = styled(Icon)`
+  color: #91d18b;
 `;

@@ -15,6 +15,22 @@ class ProfileStore {
       console.log(err);
     }
   };
+
+  //edit profile
+
+  updateProfile = async (updatedProfile) => {
+    try {
+      await instance.put("/profiles", updatedProfile);
+
+      const profile = this.profiles.find(
+        (profile) => profile.id === updatedProfile.id //user id?
+      );
+
+      for (const key in updatedProfile) profile[key] = updatedProfile[key];
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
 decorate(ProfileStore, {
