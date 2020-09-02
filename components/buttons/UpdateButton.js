@@ -8,9 +8,10 @@ const UpdateButton = ({ trip }) => {
     <UpdateButtonStyled
       title="Update"
       onPress={() => navigation.navigate("Updatetrip", { oldTrip: trip })}
-    >
-      <UpdateButtonText>Update</UpdateButtonText>
-    </UpdateButtonStyled>
+      type="MaterialCommunityIcons"
+      name="update"
+      color="#f09ae9"
+    ></UpdateButtonStyled>
   );
 };
 

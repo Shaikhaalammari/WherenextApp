@@ -11,11 +11,12 @@ import AddTrip from "../AddTrip";
 import UpdateTrip from "../UpdateTrip";
 import TripDetail from "../TripDetail";
 import DiscoverList from "../DiscoverList";
+import UpdateProfile from "../UpdateProfile";
 
 const { Navigator, Screen } = createStackNavigator();
 const RootNavigator = () => {
   return (
-    <Navigator initialRouteName="Home">
+    <Navigator initialRouteName="Profile">
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen
         name="Trips"
@@ -52,6 +53,11 @@ const RootNavigator = () => {
       <Screen
         name="Profile"
         component={ProfileList}
+        options={{ headerShown: false }}
+      />
+      <Screen
+        name="UpdateProfile"
+        component={UpdateProfile}
         options={{ headerShown: false }}
       />
     </Navigator>

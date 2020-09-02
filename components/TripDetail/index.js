@@ -9,6 +9,7 @@ import {
 import tripStore from "../../stores/tripStore";
 
 import { Thumbnail, Text } from "native-base";
+import test from "../../test.jpg";
 
 const TripDetail = ({ navigation, route }) => {
   if (tripStore.loading) return <Spinner />;
