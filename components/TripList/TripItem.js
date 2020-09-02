@@ -1,19 +1,22 @@
 import React from "react";
-import { Text } from "react-native";
 import { observer } from "mobx-react";
-
-//stores
-import tripStore from "../../stores/tripStore";
 
 //styles
 import { TripItemStyled, TripTextStyled } from "./styles";
-import { Image, Thumbnail } from "native-base";
+
+import { Thumbnail, Right } from "native-base";
+
 import test from "../../test.jpg";
-import TripDetail from "../TripDetail";
+import DeleteButton from "../buttons/DeleteButton";
+
+// Buttons
+import UpdateButton from "../buttons/UpdateButton";
+
 
 const TripItem = ({ trip, navigation }) => {
   if (tripStore.loading) return <Spinner />;
   //// WEEEE NEEEED A GOOD LOOKIN STYLING
+
   return (
     <TripItemStyled
       onPress={() => navigation.navigate("TripDetail", { trip: trip })}
@@ -27,6 +30,11 @@ const TripItem = ({ trip, navigation }) => {
         source={trip.image ? { uri: trip.image } : test}
       />
       <TripTextStyled>{trip.title}</TripTextStyled>
+
+      <Right>
+        <UpdateButton trip={trip} />
+        <DeleteButton tripId={trip.id} />
+      </Right>
     </TripItemStyled>
   );
 };

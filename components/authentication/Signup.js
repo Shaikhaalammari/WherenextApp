@@ -8,7 +8,7 @@ import {
   AuthOther,
 } from "./styles";
 
-import authStore from "../stores/authStore";
+import authStore from "../../stores/authStore";
 
 const Signup = ({ navigation }) => {
   const [user, setUser] = useState({

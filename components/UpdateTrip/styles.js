@@ -1,5 +1,4 @@
 import styled from "styled-components/native";
-import { Icon } from "native-base";
 
 export const TripContainer = styled.View`
   flex: 1;
@@ -28,6 +27,34 @@ export const TripTextInput = styled.TextInput`
   border-bottom-width: 1px;
 `;
 
+export const AddButton = styled.TouchableOpacity`
+  align-self: stretch;
+  align-items: center;
+  padding: 20px;
+  background-color: #cfe5cf;
+  margin-top: 30px;
+`;
+
+export const UpdateButton = styled.TouchableOpacity`
+  align-self: stretch;
+  align-items: center;
+  padding: 20px;
+  background-color: #cfe5cf;
+  margin-top: 30px;
+`;
+
+export const UpdateButtonText = styled.Text`
+  color: #838383;
+
+  font-size: 18px;
+`;
+
+export const AddButtonText = styled.Text`
+  color: #838383;
+
+  font-size: 18px;
+`;
+
 export const AuthOther = styled.Text`
   color: #99b898;
   margin-top: 15px;
@@ -44,8 +71,4 @@ export const TripItemStyled = styled.Text`
 export const TripTextStyled = styled.Text`
   text-align: center;
   color: #99b898;
-`;
-
-export const TrashIcon = styled(Icon)`
-  color: #e5e5e5;
 `;

@@ -1,7 +1,9 @@
 import { decorate, observable } from "mobx";
-import { AsyncStorage } from "react-native";
+import AsyncStorage from "@react-native-community/async-storage";
+
 import instance from "./instance";
 import decode from "jwt-decode";
+import AsyncStorage from "@react-native-community/async-storage";
 
 class AuthStore {
   user = null;
@@ -25,7 +27,7 @@ class AuthStore {
   signin = async (userData) => {
     try {
       const res = await instance.post("/signin", userData);
-      this.setUser(res.data.token);
+      await this.setUser(res.data.token);
 
       console.log("authStore -> signin -> res.data", res.data);
     } catch (error) {

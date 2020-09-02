@@ -1,6 +1,6 @@
 import React from "react";
 //Styling
-import { ImageBackground, View, Text, List } from "react-native";
+import { Text } from "react-native";
 import {
   HomeBackground,
   TopStyling,
