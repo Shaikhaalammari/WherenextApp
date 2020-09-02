@@ -7,6 +7,7 @@ import {
   ProfileSignoutBtn,
 } from "./styles";
 import authStore from "../../stores/authStore";
+import UpdateProfileButton from "../buttons/UpdateProfileButton";
 import { Alert } from "react-native";
 
 const ProfileItem = ({ profile }) => {
@@ -24,6 +25,7 @@ const ProfileItem = ({ profile }) => {
         name="logout"
         color="#f09ae9"
       ></ProfileSignoutBtn>
+      <UpdateProfileButton profile={profile} />
     </ProfileItemStyles>
   );
 };

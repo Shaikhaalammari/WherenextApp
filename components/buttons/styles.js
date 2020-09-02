@@ -1,13 +1,8 @@
 import styled from "styled-components/native";
 import { Icon } from "native-base";
 
-
-export const UpdateButtonStyled = styled.TouchableOpacity`
-  align-self: stretch;
-  align-items: center;
-  padding: 20px;
-  background-color: #cfe5cf;
-  margin-top: 30px;
+export const UpdateButtonStyled = styled(Icon)`
+  color: #91d18b;
 `;
 
 export const UpdateButtonText = styled.Text`
@@ -16,5 +11,5 @@ export const UpdateButtonText = styled.Text`
 `;
 
 export const TrashIcon = styled(Icon)`
-  color: #e5e5e5;
+  color: #ec0101;
 `;

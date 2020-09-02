@@ -13,7 +13,6 @@ import DeleteButton from "../buttons/DeleteButton";
 import UpdateButton from "../buttons/UpdateButton";
 
 const TripItem = ({ trip, navigation }) => {
-  // if (tripStore.loading) return <Spinner />;
   //// WEEEE NEEEED A GOOD LOOKIN STYLING
 
   return (
@@ -30,10 +29,8 @@ const TripItem = ({ trip, navigation }) => {
       />
       <TripTextStyled>{trip.title}</TripTextStyled>
 
-      <Right>
-        <UpdateButton trip={trip} />
-        <DeleteButton tripId={trip.id} />
-      </Right>
+      <UpdateButton trip={trip} />
+      <DeleteButton tripId={trip.id} />
     </TripItemStyled>
   );
 };
