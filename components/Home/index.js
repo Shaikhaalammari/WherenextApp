@@ -26,6 +26,9 @@ const Home = ({ navigation }) => {
         <ButtonStyled onPress={() => navigation.navigate("Trips")}>
           Let's Explore!
         </ButtonStyled>
+        <ButtonStyled onPress={() => navigation.navigate("Discovers")}>
+          Discover List ...
+        </ButtonStyled>
         <AuthOther onPress={() => navigation.navigate("Signin")}>
           Sign in
         </AuthOther>

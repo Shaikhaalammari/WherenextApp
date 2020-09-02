@@ -10,6 +10,7 @@ import Signup from "../authentication/Signup";
 import AddTrip from "../AddTrip";
 import UpdateTrip from "../UpdateTrip";
 import TripDetail from "../TripDetail";
+import DiscoverList from "../DiscoverList";
 
 const { Navigator, Screen } = createStackNavigator();
 const RootNavigator = () => {
@@ -19,6 +20,11 @@ const RootNavigator = () => {
       <Screen
         name="Trips"
         component={TripList}
+        options={{ title: "Choose a Trip" }}
+      />
+      <Screen
+        name="Discovers"
+        component={DiscoverList}
         options={{ title: "Choose a Trip" }}
       />
       <Screen
