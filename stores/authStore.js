@@ -1,6 +1,5 @@
 import { decorate, observable } from "mobx";
 import AsyncStorage from "@react-native-community/async-storage";
-
 import instance from "./instance";
 import decode from "jwt-decode";
 
@@ -32,6 +31,11 @@ class AuthStore {
     } catch (error) {
       console.log("AuthStore -> signin -> error", error);
     }
+  };
+
+  signout = () => {
+    delete instance.defaults.headers.common.Authorization;
+    this.user = null; // add a button for it somewhere ?
   };
 
   checkForToken = async () => {
