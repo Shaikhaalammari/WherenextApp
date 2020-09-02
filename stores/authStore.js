@@ -33,8 +33,9 @@ class AuthStore {
     }
   };
 
-  signout = () => {
+  signout = async () => {
     delete instance.defaults.headers.common.Authorization;
+    await AsyncStorage.removeItem("myToken");
     this.user = null; // add a button for it somewhere ?
   };
 

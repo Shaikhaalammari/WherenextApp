@@ -1,5 +1,4 @@
 import React from "react";
-import { Button, Alert } from "react-native";
 import { UpdateButtonStyled, UpdateButtonText } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
