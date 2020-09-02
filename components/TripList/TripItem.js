@@ -6,16 +6,27 @@ import { observer } from "mobx-react";
 import tripStore from "../../stores/tripStore";
 
 //styles
-import { TripItemStyled } from "./styles";
+import { TripItemStyled, TripTextStyled } from "./styles";
 import { Image, Thumbnail } from "native-base";
 import test from "../../test.jpg";
+import TripDetail from "../TripDetail";
 
-const TripItem = ({ trip }) => {
+const TripItem = ({ trip, navigation }) => {
   if (tripStore.loading) return <Spinner />;
+  //// WEEEE NEEEED A GOOD LOOKIN STYLING
   return (
-    <TripItemStyled>
-      {trip.title}
-      <Thumbnail source={trip.image ? { uri: trip.image } : test} />
+    <TripItemStyled
+      onPress={() => navigation.navigate("TripDetail", { trip: trip })}
+    >
+      <Thumbnail
+        style={{
+          resizeMode: "center",
+          height: 100,
+          width: 200,
+        }}
+        source={trip.image ? { uri: trip.image } : test}
+      />
+      <TripTextStyled>{trip.title}</TripTextStyled>
     </TripItemStyled>
   );
 };
