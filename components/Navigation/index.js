@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
 //Components
 import Home from "../Home";
-import ProfileList from "../ProfileList";
+import ProfileList from "../ProfileDetail";
 import TripList from "../TripList";
 import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
@@ -12,11 +12,12 @@ import UpdateTrip from "../UpdateTrip";
 import TripDetail from "../TripDetail";
 import DiscoverList from "../DiscoverList";
 import UpdateProfile from "../UpdateProfile";
+import ProfileDetail from "../ProfileDetail";
 
 const { Navigator, Screen } = createStackNavigator();
 const RootNavigator = () => {
   return (
-    <Navigator initialRouteName="Profile">
+    <Navigator initialRouteName="Home">
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen
         name="Trips"
@@ -52,9 +53,14 @@ const RootNavigator = () => {
       />
       <Screen
         name="Profile"
-        component={ProfileList}
+        component={ProfileDetail}
         options={{ headerShown: false }}
       />
+      {/* <Screen
+        name="UserProfile"
+        component={userProfile}
+        options={{ headerShown: false }}
+      /> */}
       <Screen
         name="UpdateProfile"
         component={UpdateProfile}
