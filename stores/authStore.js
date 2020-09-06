@@ -41,11 +41,9 @@ class AuthStore {
 
   checkForToken = async () => {
     const token = await AsyncStorage.getItem("myToken");
-    console.log("hiii", token);
     if (token) {
-      const currentTime = Date.now() / 1000;
-      const user = decode(token); // it was jwt_decode bs i made it decode to work!
-      if (user.expires >= currentTime) {
+      const decodedToken = decode(token);
+      if (Date.now() < decodedToken.expires) {
         this.setUser(token);
       } else {
         this.signout();
