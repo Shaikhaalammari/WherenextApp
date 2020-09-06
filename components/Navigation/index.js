@@ -3,7 +3,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 //Components
 import Home from "../Home";
-import ProfileList from "../ProfileDetail";
 import TripList from "../TripList";
 import Signin from "../authentication/Signin";
 import Signup from "../authentication/Signup";
@@ -13,6 +12,7 @@ import TripDetail from "../TripDetail";
 import DiscoverList from "../DiscoverList";
 import UpdateProfile from "../UpdateProfile";
 import ProfileDetail from "../ProfileDetail";
+import UserProfile from "../UserProfile";
 
 const { Navigator, Screen } = createStackNavigator();
 const RootNavigator = () => {
@@ -56,11 +56,11 @@ const RootNavigator = () => {
         component={ProfileDetail}
         options={{ headerShown: false }}
       />
-      {/* <Screen
+      <Screen
         name="UserProfile"
-        component={userProfile}
+        component={UserProfile}
         options={{ headerShown: false }}
-      /> */}
+      />
       <Screen
         name="UpdateProfile"
         component={UpdateProfile}

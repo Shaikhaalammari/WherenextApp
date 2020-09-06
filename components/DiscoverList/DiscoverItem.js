@@ -3,6 +3,7 @@ import { observer } from "mobx-react";
 import { Image } from "react-native";
 import test from "../../test.jpg";
 import { Card, CardItem, Thumbnail, Text, Left, Body } from "native-base";
+import { DiscoverTextStyled } from "./styles";
 
 //stores
 import tripStore from "../../stores/tripStore";
@@ -15,6 +16,11 @@ const DiscoverItem = ({ trip, navigation }) => {
       <CardItem>
         <Left>
           <Thumbnail />
+          <DiscoverTextStyled
+            onPress={() => navigation.navigate("UserProfile", { trip: trip })}
+          >
+            {trip.user.username}
+          </DiscoverTextStyled>
           <Body>
             <Text>{trip.title}</Text>
           </Body>

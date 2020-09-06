@@ -10,11 +10,15 @@ import tripStore from "../../stores/tripStore";
 import authStore from "../../stores/authStore";
 
 const DiscoverList = ({ navigation }) => {
-  const discoverList = tripStore.trips
-    .filter((trip) => authStore.user.id !== trip.userId)
-    .map((trip) => (
-      <DiscoverItem trip={trip} key={trip.id} navigation={navigation} />
-    ));
+  const discoverList = authStore.user
+    ? tripStore.trips
+        .filter((trip) => authStore.user.id !== trip.userId)
+        .map((trip) => (
+          <DiscoverItem trip={trip} key={trip.id} navigation={navigation} />
+        ))
+    : tripStore.trips.map((trip) => (
+        <DiscoverItem trip={trip} key={trip.id} navigation={navigation} />
+      ));
   return (
     <Container>
       <Content>
