@@ -35,10 +35,10 @@ export const AuthOther = styled.Text`
 
 export const TripItemStyled = styled.Text`
   color: #000000;
-  font-size: 18;
-  margin-top: 20;
-  margin-bottom: 10;
-  margin-left: 10;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 10px;
 `;
 
 export const TripTextStyled = styled.Text`

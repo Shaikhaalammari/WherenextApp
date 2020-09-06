@@ -12,12 +12,13 @@ import {
 
 // Stores
 import tripStore from "../../stores/tripStore";
+import ImgPicker from "../images/ImgPicker";
 
 const AddTrip = ({ navigation }) => {
   const [trip, setTrip] = useState({
     title: "",
     // date: "",
-    location: "",
+    detail: "",
     image: "",
   });
 
@@ -46,8 +47,8 @@ const AddTrip = ({ navigation }) => {
         placeholderTextColor="#99b898"
       /> */}
       <TripTextInput
-        onChangeText={(value) => setTrip({ ...trip, location: value })}
-        placeholder="Location"
+        onChangeText={(value) => setTrip({ ...trip, detail: value })}
+        placeholder="Detail"
         placeholderTextColor="#99b898"
       />
       <TripTextInput
@@ -55,6 +56,7 @@ const AddTrip = ({ navigation }) => {
         placeholder="Image"
         placeholderTextColor="#99b898"
       />
+      <ImgPicker />
       <AddButton onPress={handleSubmit}>
         <AddButtonText>Add Trip</AddButtonText>
       </AddButton>

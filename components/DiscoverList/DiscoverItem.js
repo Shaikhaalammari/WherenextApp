@@ -11,12 +11,16 @@ const DiscoverItem = ({ trip, navigation }) => {
   if (tripStore.loading) return <Spinner />;
 
   return (
-    <Card onPress={() => navigation.navigate("TripDetail", { trip: trip })}>
+    <Card>
       <CardItem>
         <Left>
           <Thumbnail />
           <Body>
-            <Text>{trip.title}</Text>
+            <Text
+              onPress={() => navigation.navigate("TripDetail", { trip: trip })}
+            >
+              {trip.title}
+            </Text>
           </Body>
         </Left>
       </CardItem>

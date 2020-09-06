@@ -7,6 +7,7 @@ import tripStore from "../../stores/tripStore";
 
 //components
 import TripItem from "../../components/TripList/TripItem";
+import CreateButton from "../buttons/CreateButton";
 
 const TripList = ({ navigation }) => {
   if (tripStore.loading) return <Spinner />;
@@ -17,6 +18,7 @@ const TripList = ({ navigation }) => {
 
   return (
     <Content>
+      <CreateButton />
       <List>{tripList}</List>
     </Content>
   );
