@@ -19,11 +19,12 @@ import {
   Right,
   Content,
 } from "native-base";
-import tripStore from "../../stores/tripStore";
+import profileStore from "../../stores/profileStore";
+import MyTripList from "../MyTripList";
 
 const ProfileDetail = ({ navigation }) => {
-  const userList = tripStore.trips.filter(
-    (trip) => authStore.user.id === trip.userId
+  const profile = profileStore.profiles.find(
+    (profile) => authStore.user.id === profile.userId
   );
 
   const handleSignout = async () => {
@@ -33,33 +34,33 @@ const ProfileDetail = ({ navigation }) => {
     Alert.alert("You have Signed Out");
   };
 
-  //how to render the list in profile by the username
   return (
-    <Card>
-      <CardItem>
-        <Left>
-          <Thumbnail
-            large
-            source={
-              authStore.user.image ? { uri: authStore.user.image } : test2
-            }
-          />
-        </Left>
-        <Right>
-          <Text>{authStore.user.username}</Text>
-          <Text>{authStore.user.bio}</Text>
-        </Right>
-      </CardItem>
-      <CardItem cardBody>
-        <ProfileSignoutBtn
-          onPress={handleSignout}
-          type="SimpleLineIcons"
-          name="logout"
-          color="#f09ae9"
-        ></ProfileSignoutBtn>
-        <UpdateProfileButton profile={authStore.user} />
-      </CardItem>
-    </Card>
+    <>
+      <Card>
+        <CardItem>
+          <Left>
+            <Thumbnail
+              large
+              source={profile.image ? { uri: profile.image } : test2}
+            />
+          </Left>
+          <Right>
+            <Text>{authStore.user.username}</Text>
+            <Text>{profile.bio}</Text>
+          </Right>
+        </CardItem>
+        <CardItem cardBody>
+          <ProfileSignoutBtn
+            onPress={handleSignout}
+            type="SimpleLineIcons"
+            name="logout"
+            color="#f09ae9"
+          ></ProfileSignoutBtn>
+          <UpdateProfileButton profile={authStore.user} />
+        </CardItem>
+      </Card>
+      <MyTripList />
+    </>
   );
 };
 
