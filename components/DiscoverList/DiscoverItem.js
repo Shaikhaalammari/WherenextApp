@@ -9,8 +9,6 @@ import { DiscoverTextStyled } from "./styles";
 import tripStore from "../../stores/tripStore";
 
 const DiscoverItem = ({ trip, navigation }) => {
-  if (tripStore.loading) return <Spinner />;
-
   return (
     <Card onPress={() => navigation.navigate("TripDetail", { trip: trip })}>
       <CardItem>
