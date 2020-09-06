@@ -40,6 +40,7 @@ const ImgPicker = () => {
       });
       if (!result.cancelled) {
         setImage({ image: result.uri });
+        setTrip({ ...trip, image: result.uri });
       }
 
       console.log(result);
@@ -47,37 +48,6 @@ const ImgPicker = () => {
       console.log(E);
     }
   };
-
-  ////////////////////////////////////////////////////////////////
-  //   const [selectedImage, setSelectedImage] = useState(null);
-
-  //   let openImagePickerAsync = async () => {
-  //     let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
-
-  //     if (permissionResult.granted === false) {
-  //       alert("Permission to access camera roll is required!");
-  //       return;
-  //     }
-
-  //     let pickerResult = await ImagePicker.launchImageLibraryAsync();
-  //     console.log(pickerResult);
-  //   };
-  //   if (pickerResult.cancelled === true) {
-  //     return;
-  //   }
-
-  //   setSelectedImage({ localUri: pickerResult.uri });
-  // };
-
-  // if (selectedImage !== null) {
-  //   return (
-  //     <View style={styles.container}>
-  //       <Image
-  //         source={{ uri: selectedImage.localUri }}
-  //         style={styles.thumbnail}
-  //       />
-  //     </View>
-  //   );
   console.log("image", image);
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
@@ -94,25 +64,5 @@ const ImgPicker = () => {
     </View>
   );
 };
-/* <View>
-        <Image source={{ uri: "https://i.imgur.com/TkIrScD.png" }} />
-        <Text>
-          To share a photo from your phone with a friend, just press the button
-          below!
-        </Text>
-
-        <TouchableOpacity onPress={openImagePickerAsync}>
-          <Text>Pick a photo</Text>
-        </TouchableOpacity>
-      </View>
-    </> */
-
-// const styles = StyleSheet.create({
-/* Other styles hidden to keep the example brief... */
-// thumbnail: {
-//   width: 300,
-//   height: 300,
-//   resizeMode: "contain"
-// } */}
 
 export default ImgPicker;

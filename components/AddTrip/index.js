@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { observer } from "mobx-react";
+import * as ImagePicker from "expo-image-picker";
+import * as Permissions from "expo-permissions";
+import { Button, Image, View, Platform } from "react-native";
 
 // Styles
 import {
@@ -28,10 +31,41 @@ const AddTrip = ({ navigation }) => {
     navigation.replace("Trips");
   };
 
-  //   const handleChange = async () => {
-  //     await tripStore.updateTrip(trip);
-  //     navigation.replace("Trips");
-  //   };
+  //////IMAGE PICKER/////////
+
+  const [image, setImage] = useState();
+
+  getPermissionAsync = async () => {
+    if (Platform.OS !== "web") {
+      const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+      if (status !== "granted") {
+        alert("Sorry, we need camera roll permissions to make this work!");
+      }
+    }
+  };
+
+  useEffect(() => {
+    getPermissionAsync();
+  });
+
+  _pickImage = async () => {
+    try {
+      let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.All,
+        allowsEditing: true,
+        aspect: [4, 3],
+        quality: 1,
+      });
+      if (!result.cancelled) {
+        setImage({ image: result.uri });
+        setTrip({ ...trip, image: result.uri });
+      }
+
+      console.log(result);
+    } catch (E) {
+      console.log(E);
+    }
+  };
 
   return (
     <TripContainer>
@@ -56,7 +90,13 @@ const AddTrip = ({ navigation }) => {
         placeholder="Image"
         placeholderTextColor="#99b898"
       />
-      <ImgPicker />
+      <Button title="Pick an image from camera roll" onPress={_pickImage} />
+      {image && (
+        <Image
+          source={{ uri: image.image }}
+          style={{ width: 200, height: 200 }}
+        />
+      )}
       <AddButton onPress={handleSubmit}>
         <AddButtonText>Add Trip</AddButtonText>
       </AddButton>
