@@ -1,6 +1,12 @@
 import styled from "styled-components/native";
 import { Icon } from "native-base";
 
+export const AddButtonStyled = styled(Icon)`
+  color: #91d18b;
+  margin-left: 20px;
+  margin-top: 20px;
+`;
+
 export const UpdateButtonStyled = styled(Icon)`
   color: #91d18b;
 `;

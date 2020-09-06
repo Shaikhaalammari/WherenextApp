@@ -1,11 +1,16 @@
 import React from "react";
-import { Button } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { AddButtonStyled } from "./styles";
 
 const CreateButton = () => {
+  const navigation = useNavigation();
   return (
-    <>
-      <Button title="Add New Trip" onPress={() => openModal} />
-    </>
+    <AddButtonStyled
+      onPress={() => navigation.navigate("Addtrip")}
+      type="Ionicons"
+      name="add"
+      color="#f09ae9"
+    ></AddButtonStyled>
   );
 };
 

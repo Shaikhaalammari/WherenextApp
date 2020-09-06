@@ -2,10 +2,10 @@ import styled from "styled-components/native";
 
 export const TripDetailStyled = styled.Text`
   color: #000000;
-  font-size: 18;
-  margin-top: 100;
-  margin-bottom: 10;
-  margin-left: 10;
+  font-size: 18px;
+  margin-top: 100px;
+  margin-bottom: 10px;
+  margin-left: 10px;
 `;
 
 export const DetailTextStyled = styled.Text`

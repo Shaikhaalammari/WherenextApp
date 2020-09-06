@@ -10,7 +10,6 @@ class TripStore {
   fetchTrips = async () => {
     try {
       const res = await instance.get("/trips");
-      console.log(res.data);
       this.trips = res.data;
       this.loading = false;
     } catch (err) {
@@ -20,9 +19,9 @@ class TripStore {
 
   addTrip = async (newTrip) => {
     try {
-      const formData = new FormData();
-      for (const key in newTrip) formData.append(key, newTrip[key]);
-      const res = await instance.post("/trips", formData);
+      // const formData = new FormData();
+      // for (const key in newTrip) formData.append(key, newTrip[key]);
+      const res = await instance.post("/trips", newTrip);
       this.trips.push(res.data);
     } catch (error) {
       console.log("TripStore -> addTrip -> error", error);
