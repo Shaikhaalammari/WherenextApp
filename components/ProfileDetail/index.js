@@ -21,6 +21,7 @@ import {
 } from "native-base";
 import profileStore from "../../stores/profileStore";
 import MyTripList from "../MyTripList";
+import CreateButton from "../buttons/CreateButton";
 
 const ProfileDetail = ({ navigation }) => {
   const profile = profileStore.profiles.find(
@@ -57,6 +58,9 @@ const ProfileDetail = ({ navigation }) => {
             color="#f09ae9"
           ></ProfileSignoutBtn>
           <UpdateProfileButton profile={authStore.user} />
+          <Right>
+            <CreateButton />
+          </Right>
         </CardItem>
       </Card>
       <MyTripList />

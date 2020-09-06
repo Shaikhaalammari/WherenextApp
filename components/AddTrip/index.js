@@ -15,7 +15,6 @@ import {
 
 // Stores
 import tripStore from "../../stores/tripStore";
-import ImgPicker from "../images/ImgPicker";
 
 const AddTrip = ({ navigation }) => {
   const [trip, setTrip] = useState({
@@ -28,7 +27,7 @@ const AddTrip = ({ navigation }) => {
   const handleSubmit = async () => {
     // console.log("inside handle submit", trip);
     await tripStore.addTrip(trip);
-    navigation.replace("Trips");
+    navigation.goBack();
   };
 
   //////IMAGE PICKER/////////
@@ -58,7 +57,16 @@ const AddTrip = ({ navigation }) => {
       });
       if (!result.cancelled) {
         setImage({ image: result.uri });
-        setTrip({ ...trip, image: result.uri });
+
+        // ImagePicker saves the taken photo to disk and returns a local URI to it
+        let localUri = result.uri;
+        let filename = localUri.split("/").pop();
+
+        // Infer the type of the image
+        let match = /\.(\w+)$/.exec(filename);
+        let type = match ? `image/${match[1]}` : `image`;
+
+        setTrip({ ...trip, image: { uri: localUri, name: filename, type } });
       }
 
       console.log(result);

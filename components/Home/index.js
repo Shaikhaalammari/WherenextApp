@@ -1,4 +1,5 @@
 import React from "react";
+import { observer } from "mobx-react";
 //Styling
 import { Text } from "react-native";
 import {
@@ -9,7 +10,11 @@ import {
   AuthOther,
 } from "./styles";
 
+import authStore from "../../stores/authStore";
+
 const Home = ({ navigation }) => {
+  if (authStore.user) navigation.replace("Profile");
+
   return (
     <HomeBackground
       source={{
@@ -37,4 +42,4 @@ const Home = ({ navigation }) => {
   );
 };
 
-export default Home;
+export default observer(Home);
