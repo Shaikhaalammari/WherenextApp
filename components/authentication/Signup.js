@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  AuthBackground,
   AuthContainer,
   AuthTitle,
   AuthTextInput,
@@ -25,41 +26,43 @@ const Signup = ({ navigation }) => {
   };
 
   return (
-    <AuthContainer>
-      <AuthTitle>Sign Up</AuthTitle>
-      <AuthTextInput
-        onChangeText={(value) => setUser({ ...user, username: value })} // ican clean this bs i wont
-        placeholder="Username"
-        placeholderTextColor="#99b898"
-      />
-      <AuthTextInput
-        onChangeText={(value) => setUser({ ...user, firstName: value })}
-        placeholder="First Name"
-        placeholderTextColor="#99b898"
-      />
-      <AuthTextInput
-        onChangeText={(value) => setUser({ ...user, lastName: value })}
-        placeholder="Last Name"
-        placeholderTextColor="#99b898"
-      />
-      <AuthTextInput
-        onChangeText={(value) => setUser({ ...user, email: value })}
-        placeholder="E-mail"
-        placeholderTextColor="#99b898"
-      />
-      <AuthTextInput
-        onChangeText={(value) => setUser({ ...user, password: value })}
-        placeholder="Password"
-        placeholderTextColor="#99b898"
-        secureTextEntry={true}
-      />
-      <AuthButton onPress={handleSubmit}>
-        <AuthButtonText>Sign up</AuthButtonText>
-      </AuthButton>
-      <AuthOther onPress={() => navigation.navigate("Signin")}>
-        Already have an Acoount ? click here to Sign in
-      </AuthOther>
-    </AuthContainer>
+    <AuthBackground
+      source={{
+        uri:
+          "https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?ixlib=rb-1.2.1&w=1000&q=80",
+      }}
+    >
+      <AuthContainer>
+        <AuthTitle>Sign Up</AuthTitle>
+        <AuthTextInput
+          onChangeText={(value) => setUser({ ...user, username: value })} // ican clean this bs i wont
+          placeholder="Username"
+        />
+        <AuthTextInput
+          onChangeText={(value) => setUser({ ...user, firstName: value })}
+          placeholder="First Name"
+        />
+        <AuthTextInput
+          onChangeText={(value) => setUser({ ...user, lastName: value })}
+          placeholder="Last Name"
+        />
+        <AuthTextInput
+          onChangeText={(value) => setUser({ ...user, email: value })}
+          placeholder="E-mail"
+        />
+        <AuthTextInput
+          onChangeText={(value) => setUser({ ...user, password: value })}
+          placeholder="Password"
+          secureTextEntry={true}
+        />
+        <AuthButton onPress={handleSubmit}>
+          <AuthButtonText>Sign up</AuthButtonText>
+        </AuthButton>
+        <AuthOther onPress={() => navigation.navigate("Signin")}>
+          Already have an Acount ? click here to Sign in
+        </AuthOther>
+      </AuthContainer>
+    </AuthBackground>
   );
 };
 

@@ -10,6 +10,7 @@ import {
   AuthOther,
   Title,
   Hello,
+  OverLayContainer,
 } from "./styles";
 
 import authStore from "../../stores/authStore";
