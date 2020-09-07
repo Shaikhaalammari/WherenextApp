@@ -44,6 +44,7 @@ const TripNavigation = () => {
         component={UserProfile}
         options={{ headerShown: false }}
       />
+      <Screen name="Updatetrip" component={UpdateTrip} />
     </Navigator>
   );
 };
