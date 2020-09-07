@@ -98,21 +98,21 @@ const UpdateProfile = ({ navigation, route }) => {
         placeholderTextColor="#99b898"
         value={profile.image}
       /> */}
-      <Row>
-        <AddImageText>Add an image</AddImageText>
-        <AddImageBtnStyled
-          title="Pick an image from camera roll"
-          onPress={_pickImage}
-          type="Ionicons"
-          name="image"
+
+      <AddImageText>Add an image</AddImageText>
+      <AddImageBtnStyled
+        title="Pick an image from camera roll"
+        onPress={_pickImage}
+        type="Ionicons"
+        name="image"
+      />
+      {image && (
+        <Image
+          source={{ uri: image.image }}
+          style={{ width: 200, height: 200 }}
         />
-        {image && (
-          <Image
-            source={{ uri: image.image }}
-            style={{ width: 200, height: 200 }}
-          />
-        )}
-      </Row>
+      )}
+
       <UpdateButton onPress={handleUpdate}>
         <UpdateButtonText>Edit profile</UpdateButtonText>
       </UpdateButton>

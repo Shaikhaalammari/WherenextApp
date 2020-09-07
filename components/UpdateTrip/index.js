@@ -107,21 +107,21 @@ const UpdateTrip = ({ navigation, route }) => {
         placeholder="Location"
         placeholderTextColor="#99b898"
       /> */}
-      <Row>
-        <AddImageText>Add an image</AddImageText>
-        <AddImageBtnStyled
-          title="Pick an image from camera roll"
-          onPress={_pickImage}
-          type="Ionicons"
-          name="image"
+
+      <AddImageText>Add an image</AddImageText>
+      <AddImageBtnStyled
+        title="Pick an image from camera roll"
+        onPress={_pickImage}
+        type="Ionicons"
+        name="image"
+      />
+      {image && (
+        <Image
+          source={{ uri: image.image }}
+          style={{ width: 200, height: 200 }}
         />
-        {image && (
-          <Image
-            source={{ uri: image.image }}
-            style={{ width: 200, height: 200 }}
-          />
-        )}
-      </Row>
+      )}
+
       <UpdateButton onPress={handleUpdate}>
         <UpdateButtonText>Update Trip</UpdateButtonText>
       </UpdateButton>

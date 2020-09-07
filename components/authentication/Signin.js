@@ -3,6 +3,7 @@ import { observer } from "mobx-react";
 
 //STYLES
 import {
+  AuthBackground,
   AuthContainer,
   AuthTitle,
   AuthTextInput,
@@ -27,26 +28,33 @@ const Signin = ({ navigation }) => {
   if (authStore.user) navigation.replace("Profile");
 
   return (
-    <AuthContainer>
-      <AuthTitle>Sign in</AuthTitle>
-      <AuthTextInput
-        onChangeText={(username) => setUser({ ...user, username })}
-        placeholder="Username"
-        placeholderTextColor="grey"
-      />
-      <AuthTextInput
-        onChangeText={(password) => setUser({ ...user, password })}
-        placeholder="Password"
-        placeholderTextColor="grey"
-        secureTextEntry={true}
-      />
-      <AuthButton onPress={handleSubmit}>
-        <AuthButtonText>Sign in</AuthButtonText>
-      </AuthButton>
-      <AuthOther onPress={() => navigation.navigate("Signup")}>
-        Click here to register!
-      </AuthOther>
-    </AuthContainer>
+    <AuthBackground
+      source={{
+        uri:
+          "https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?ixlib=rb-1.2.1&w=1000&q=80",
+      }}
+    >
+      <AuthContainer>
+        <AuthTitle>Sign in</AuthTitle>
+        <AuthTextInput
+          onChangeText={(username) => setUser({ ...user, username })}
+          placeholder="Username"
+          placeholderTextColor="grey"
+        />
+        <AuthTextInput
+          onChangeText={(password) => setUser({ ...user, password })}
+          placeholder="Password"
+          placeholderTextColor="grey"
+          secureTextEntry={true}
+        />
+        <AuthButton onPress={handleSubmit}>
+          <AuthButtonText>Sign in</AuthButtonText>
+        </AuthButton>
+        <AuthOther onPress={() => navigation.navigate("Signup")}>
+          Click here to register!
+        </AuthOther>
+      </AuthContainer>
+    </AuthBackground>
   );
 };
 

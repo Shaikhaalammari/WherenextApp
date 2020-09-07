@@ -8,7 +8,7 @@ export const AddImageText = styled.Text`
 
 export const AddImageBtnStyled = styled(Icon)`
   color: #91d18b;
-  margin-left: 100px;
+  margin-top: 10px;
 `;
 
 export const TripContainer = styled.View`

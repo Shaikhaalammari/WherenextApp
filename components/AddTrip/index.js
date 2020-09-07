@@ -102,21 +102,19 @@ const AddTrip = ({ navigation }) => {
         placeholderTextColor="#99b898"
       /> */}
 
-      <Row>
-        <AddImageText>Add an image</AddImageText>
-        <AddImageBtnStyled
-          title="Pick an image from camera roll"
-          onPress={_pickImage}
-          type="Ionicons"
-          name="image"
+      <AddImageText>Add an image</AddImageText>
+      <AddImageBtnStyled
+        title="Pick an image from camera roll"
+        onPress={_pickImage}
+        type="Ionicons"
+        name="image"
+      />
+      {image && (
+        <Image
+          source={{ uri: image.image }}
+          style={{ width: 200, height: 200 }}
         />
-        {image && (
-          <Image
-            source={{ uri: image.image }}
-            style={{ width: 200, height: 200 }}
-          />
-        )}
-      </Row>
+      )}
 
       <AddButton onPress={handleSubmit}>
         <AddButtonText>Add Trip</AddButtonText>

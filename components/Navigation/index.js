@@ -15,14 +15,18 @@ const Tab = createBottomTabNavigator();
 
 const MyTabs = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      tabBarOptions={{
+        activeTintColor: "C3F7EB",
+      }}
+    >
       <Tab.Screen
         name="Home"
         component={Home}
         options={{
           tabBarLabel: "Home",
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" color={"#FF8033"} size={30} />
+            <MaterialCommunityIcons name="home" color={"#88D9F3"} size={30} />
           ),
         }}
       />
@@ -32,7 +36,7 @@ const MyTabs = () => {
         options={{
           tabBarLabel: "Discover",
           tabBarIcon: () => (
-            <MaterialCommunityIcons name="earth" color={"#FF8033"} size={30} />
+            <MaterialCommunityIcons name="earth" color={"#88D9F3"} size={30} />
           ),
         }}
       />
@@ -44,7 +48,7 @@ const MyTabs = () => {
           tabBarIcon: () => (
             <MaterialCommunityIcons
               name="account"
-              color={"#FF8033"}
+              color={"#88D9F3"}
               size={30}
             />
           ),

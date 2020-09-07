@@ -1,6 +1,7 @@
 import React from "react";
 import { List, Content, Spinner, Right } from "native-base";
 import { observer } from "mobx-react";
+import { useNavigation } from "@react-navigation/native";
 
 //stores
 import tripStore from "../../stores/tripStore";
@@ -12,7 +13,8 @@ import { ListItem } from "react-native-gesture-handler";
 //styles
 import { Backgroundcolor } from "./styles";
 
-const MyTripList = ({ navigation, owner, profile, trip }) => {
+const MyTripList = ({ owner, profile, trip }) => {
+  const navigation = useNavigation();
   const userList = owner
     ? tripStore.trips
         .filter((trip) => authStore.user.id === trip.userId)
