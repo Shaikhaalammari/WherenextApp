@@ -6,7 +6,7 @@ export const UsernameStyled = styled.Text`
   color: #99b898;
   font-size: 35px;
   margin-top: 30px
-  margin-right: 80px
+  margin-right: 50px
   align-items: center;
 `;
 
