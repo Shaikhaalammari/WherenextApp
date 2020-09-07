@@ -1,16 +1,21 @@
 import React from "react";
 import { observer } from "mobx-react";
+import { Thumbnail } from "native-base";
 // import MapView from "react-native-maps";
+
+//styles
 import {
   TripDetailStyled,
   DetailTextStyled,
   BottomStyling,
   TopStyling,
 } from "./styles";
-import tripStore from "../../stores/tripStore";
-
-import { Thumbnail, Text } from "native-base";
+//the image
 import test from "../../test.jpg";
+
+// Buttons
+import UpdateButton from "../buttons/UpdateButton";
+import DeleteButton from "../buttons/DeleteButton";
 
 const TripDetail = ({ route }) => {
   const { trip } = route.params;
@@ -24,16 +29,15 @@ const TripDetail = ({ route }) => {
             <Thumbnail
               style={{
                 resizeMode: "center",
-                height: 100,
-                width: 200,
+                height: 200,
+                width: 500,
               }}
               source={trip.image ? { uri: trip.image } : test}
             />
           </TopStyling>
-          <BottomStyling>
-            {trip.title}
-            {trip.detail}
-          </BottomStyling>
+          <BottomStyling>{trip.detail}</BottomStyling>
+          <UpdateButton trip={trip} />
+          <DeleteButton tripId={trip.id} />
         </DetailTextStyled>
       </TripDetailStyled>
     </>

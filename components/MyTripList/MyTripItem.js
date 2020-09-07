@@ -1,18 +1,15 @@
 import React from "react";
 import { observer } from "mobx-react";
+import { useNavigation } from "@react-navigation/native";
 
 //styles
 import { MyTripItemStyled, MyTripTextStyled } from "./styles";
-import { Thumbnail, Right, Row } from "native-base";
+import { Thumbnail } from "native-base";
 //Data
 import test from "../../test.jpg";
 
-// Buttons
-import UpdateButton from "../buttons/UpdateButton";
-import DeleteButton from "../buttons/DeleteButton";
-import UpdateTrip from "../UpdateTrip";
-
-const MyTripItem = ({ trip, navigation }) => {
+const MyTripItem = ({ trip }) => {
+  const navigation = useNavigation();
   return (
     <>
       <MyTripItemStyled
@@ -29,8 +26,6 @@ const MyTripItem = ({ trip, navigation }) => {
       </MyTripItemStyled>
       <MyTripItemStyled>
         <MyTripTextStyled>{trip.title}</MyTripTextStyled>
-        <UpdateButton trip={trip} />
-        <DeleteButton tripId={trip.id} />
       </MyTripItemStyled>
     </>
     // <Card>
