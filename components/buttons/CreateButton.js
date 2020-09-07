@@ -8,8 +8,7 @@ const CreateButton = () => {
     <AddButtonStyled
       onPress={() => navigation.navigate("Addtrip")}
       type="Ionicons"
-      name="add"
-      color="#f09ae9"
+      name="md-add-circle-outline"
     ></AddButtonStyled>
   );
 };

@@ -15,6 +15,8 @@ import {
   Content,
 } from "native-base";
 import profileStore from "../../stores/profileStore";
+import MyTripList from "../MyTripList";
+import MyTripItem from "../MyTripList/MyTripItem";
 
 //WORKED
 const UserProfile = ({ navigation, route }) => {
@@ -24,20 +26,23 @@ const UserProfile = ({ navigation, route }) => {
   );
 
   return (
-    <Card>
-      <CardItem>
-        <Left>
-          <Thumbnail
-            large
-            source={profile.image ? { uri: profile.image } : test2}
-          />
-        </Left>
-        <Right>
-          <Text>{trip.user.username}</Text>
-          <Text>{profile.bio}</Text>
-        </Right>
-      </CardItem>
-    </Card>
+    <>
+      <Card>
+        <CardItem>
+          <Left>
+            <Thumbnail
+              large
+              source={profile.image ? { uri: profile.image } : test2}
+            />
+          </Left>
+          <Right>
+            <Text>{trip.user.username}</Text>
+            <Text>{profile.bio}</Text>
+          </Right>
+        </CardItem>
+      </Card>
+      <MyTripList profile={profile} trip={trip} />
+    </>
   );
 };
 

@@ -11,7 +11,10 @@ import {
   TripTextInput,
   AddButton,
   AddButtonText,
+  AddImageBtnStyled,
+  AddImageText,
 } from "./styles";
+import { Row } from "native-base";
 
 // Stores
 import tripStore from "../../stores/tripStore";
@@ -93,18 +96,28 @@ const AddTrip = ({ navigation }) => {
         placeholder="Detail"
         placeholderTextColor="#99b898"
       />
-      <TripTextInput
+      {/* <TripTextInput
         onChangeText={(value) => setTrip({ ...trip, image: value })}
         placeholder="Image"
         placeholderTextColor="#99b898"
-      />
-      <Button title="Pick an image from camera roll" onPress={_pickImage} />
-      {image && (
-        <Image
-          source={{ uri: image.image }}
-          style={{ width: 200, height: 200 }}
+      /> */}
+
+      <Row>
+        <AddImageText>Add an image</AddImageText>
+        <AddImageBtnStyled
+          title="Pick an image from camera roll"
+          onPress={_pickImage}
+          type="Ionicons"
+          name="image"
         />
-      )}
+        {image && (
+          <Image
+            source={{ uri: image.image }}
+            style={{ width: 200, height: 200 }}
+          />
+        )}
+      </Row>
+
       <AddButton onPress={handleSubmit}>
         <AddButtonText>Add Trip</AddButtonText>
       </AddButton>

@@ -3,7 +3,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { ThemeProvider } from "styled-components";
 import RootNavigator from "./components/Navigation";
-import ImgPicker from "./components/images/ImgPicker";
 
 const theme = {
   light: {
@@ -33,7 +32,6 @@ export default function App() {
       <NavigationContainer>
         <RootNavigator />
       </NavigationContainer>
-      {/* <ImgPicker /> */}
     </ThemeProvider>
   );
 }

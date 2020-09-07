@@ -20,7 +20,11 @@ class ProfileStore {
 
   updateProfile = async (updatedProfile) => {
     try {
-      await instance.put("/profiles", updatedProfile);
+      const formData = new FormData();
+      for (const key in updatedProfile)
+        formData.append(key, updatedProfile[key]);
+
+      await instance.put(`/profiles`, formData);
 
       const profile = this.profiles.find(
         (profile) => profile.id === updatedProfile.id //user id?
