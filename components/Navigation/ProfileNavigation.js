@@ -41,6 +41,11 @@ const ProfileNavigation = () => {
         options={{ headerShown: false }}
       />
       <Screen
+        name="TripDetail"
+        component={TripDetail}
+        options={{ headerShown: false }}
+      />
+      <Screen
         name="UpdateProfile"
         component={UpdateProfile}
         options={{ headerShown: false }}

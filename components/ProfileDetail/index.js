@@ -24,6 +24,7 @@ import MyTripList from "../MyTripList";
 import { Alert } from "react-native";
 import test2 from "../../test2.png";
 import { Card, CardItem, Thumbnail, Text, Left, Right } from "native-base";
+import { Backgroundcolor } from "../MyTripList/styles";
 
 const ProfileDetail = ({ navigation }) => {
   const profile = profileStore.profiles.find(
@@ -38,36 +39,39 @@ const ProfileDetail = ({ navigation }) => {
   console.log(authStore.user.id);
 
   const owner = true;
-
   return (
     <>
-      <Card>
-        <CardItem cardBody>
-          <ProfileSignoutBtn
-            onPress={handleSignout}
-            type="SimpleLineIcons"
-            name="logout"
-            color="#f09ae9"
-          ></ProfileSignoutBtn>
-          <Right>
-            <UpdateProfileButton profile={authStore.user} />
-            {/* <CreateButton /> */}
-          </Right>
-        </CardItem>
-        <CardItem>
-          <Left>
-            <Thumbnail
-              large
-              source={profile.image ? { uri: profile.image } : test2}
-            />
-          </Left>
-          <Right>
-            <UsernameStyled>{authStore.user.username}</UsernameStyled>
-            <BioStyled>{profile.bio}</BioStyled>
-          </Right>
-        </CardItem>
-      </Card>
-      <MyTripList owner={owner} />
+      <Backgroundcolor>
+        <Card>
+          <CardItem style={{ backgroundColor: "#FBF9F3" }} cardBody>
+            <ProfileSignoutBtn
+              onPress={handleSignout}
+              type="SimpleLineIcons"
+              name="logout"
+              color="#f09ae9"
+            ></ProfileSignoutBtn>
+            <Right>{/* <CreateButton /> */}</Right>
+          </CardItem>
+          <CardItem style={{ backgroundColor: "#FBF9F3" }}>
+            <Left>
+              <UpdateProfileButton profile={authStore.user} />
+
+              <Thumbnail
+                large
+                source={profile.image ? { uri: profile.image } : test2}
+                style={{ marginLeft: -77, marginBottom: -25 }}
+              />
+            </Left>
+            <Right>
+              <UsernameStyled>{authStore.user.username}</UsernameStyled>
+              <CardItem style={{ backgroundColor: "#FBF9F3" }}>
+                <BioStyled>{profile.bio}</BioStyled>
+              </CardItem>
+            </Right>
+          </CardItem>
+        </Card>
+        <MyTripList owner={owner} />
+      </Backgroundcolor>
     </>
   );
 };
