@@ -2,8 +2,25 @@ import React from "react";
 import { observer } from "mobx-react";
 
 //styles
-import { MyTripItemStyled, MyTripTextStyled } from "./styles";
-import { Thumbnail, Right, Row } from "native-base";
+import {
+  MyTripItemStyled,
+  MyTripTextStyled,
+  ButtonsStyle,
+  CardWrapping,
+  Backgroundcolor,
+} from "./styles";
+import {
+  Thumbnail,
+  Right,
+  Row,
+  Card,
+  CardItem,
+  List,
+  Body,
+  Text,
+} from "native-base";
+import { ColumnWrapperStyle, ImageBackground, ScrollView } from "react-native";
+
 //Data
 import test from "../../test.jpg";
 
@@ -11,49 +28,35 @@ import test from "../../test.jpg";
 import UpdateButton from "../buttons/UpdateButton";
 import DeleteButton from "../buttons/DeleteButton";
 import UpdateTrip from "../UpdateTrip";
+import { useNavigation } from "@react-navigation/native";
 
-const MyTripItem = ({ trip, navigation }) => {
+const MyTripItem = ({ trip }) => {
+  const navigation = useNavigation();
+
   return (
-    <>
-      <MyTripItemStyled
-        onPress={() => navigation.navigate("TripDetail", { trip: trip })}
-      >
-        <Thumbnail
-          style={{
-            resizeMode: "center",
-            height: 100,
-            width: 200,
-          }}
-          source={trip.image ? { uri: trip.image } : test}
-        />
-      </MyTripItemStyled>
-      <MyTripItemStyled>
-        <MyTripTextStyled>{trip.title}</MyTripTextStyled>
-        <UpdateButton trip={trip} />
-        <DeleteButton tripId={trip.id} />
-      </MyTripItemStyled>
-    </>
-    // <Card>
-    //   <CardItem>
-    //     <Left>
-    //       <Body>
-    //         <Text
-    //           onPress={() => navigation.navigate("TripDetail", { trip: trip })}
-    //         >
-    //           {trip.title}
-    //         </Text>
-    //       </Body>
-    //     </Left>
-    //   </CardItem>
-    //   <CardItem cardBody>
-    //     <Image
-    //       source={trip.image ? { uri: trip.image } : test}
-    //       style={{ height: 200, width: null, flex: 1 }}
-    //     />
-    //   </CardItem>
-    //   <UpdateTrip/>
-    //   <DeleteButton/>
-    // </Card>
+    <Card>
+      <CardItem style={{ backgroundColor: "#FBF9F3" }}>
+        <List>
+          <CardWrapping>
+            <MyTripItemStyled
+              onPress={() => navigation.navigate("TripDetail", { trip: trip })}
+            >
+              <Thumbnail
+                style={{
+                  resizeMode: "left",
+                  height: 100,
+                  width: 200,
+
+                  marginBottom: -70,
+                }}
+                source={trip.image ? { uri: trip.image } : test}
+              />
+            </MyTripItemStyled>
+          </CardWrapping>
+          <MyTripTextStyled>{trip.title}</MyTripTextStyled>
+        </List>
+      </CardItem>
+    </Card>
   );
 };
 

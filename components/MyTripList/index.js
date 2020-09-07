@@ -8,6 +8,9 @@ import authStore from "../../stores/authStore";
 //components
 import MyTripItem from "../MyTripList/MyTripItem";
 import CreateButton from "../buttons/CreateButton";
+import { ListItem } from "react-native-gesture-handler";
+//styles
+import { Backgroundcolor } from "./styles";
 
 const MyTripList = ({ navigation, owner, profile, trip }) => {
   const userList = owner
@@ -23,12 +26,14 @@ const MyTripList = ({ navigation, owner, profile, trip }) => {
         ));
 
   return (
-    <Content>
-      <Right>
-        <CreateButton />
-      </Right>
-      <List>{userList}</List>
-    </Content>
+    <Backgroundcolor>
+      <Content>
+        <Right>
+          <CreateButton />
+        </Right>
+        <List>{userList}</List>
+      </Content>
+    </Backgroundcolor>
   );
 };
 export default observer(MyTripList);
