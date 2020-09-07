@@ -17,21 +17,31 @@ import UserProfile from "../UserProfile";
 const { Navigator, Screen } = createStackNavigator();
 const TripNavigation = () => {
   return (
-    <Navigator initialRouteName="Discovers">
+    <Navigator initialRouteName="Discover">
       <Screen
         name="Trips"
         component={TripList}
         options={{ title: "Choose a Trip" }}
       />
       <Screen
-        name="Discovers"
+        name="Discover"
         component={DiscoverList}
         options={{ title: "Choose a Trip" }}
       />
 
       <Screen
+        name="Signin"
+        component={Signin}
+        options={{ headerShown: false }}
+      />
+      <Screen
         name="TripDetail"
         component={TripDetail}
+        options={{ headerShown: false }}
+      />
+      <Screen
+        name="UserProfile"
+        component={UserProfile}
         options={{ headerShown: false }}
       />
     </Navigator>

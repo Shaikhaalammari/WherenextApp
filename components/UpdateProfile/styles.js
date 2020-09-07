@@ -1,4 +1,15 @@
 import styled from "styled-components/native";
+import { Icon } from "native-base";
+
+export const AddImageText = styled.Text`
+  color: #91d18b;
+  font-size: 17px;
+`;
+
+export const AddImageBtnStyled = styled(Icon)`
+  color: #91d18b;
+  margin-left: 100px;
+`;
 
 export const TripContainer = styled.View`
   flex: 1;

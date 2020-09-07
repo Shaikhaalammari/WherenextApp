@@ -1,43 +1,59 @@
 import React from "react";
 import { observer } from "mobx-react";
+
+//Styles
 import {
   ProfileItemStyles,
   ProfileTextStyles,
   ProfileSignoutBtn,
+  BioStyled,
+  UsernameStyled,
 } from "./styles";
+
+// STORES
 import authStore from "../../stores/authStore";
+import profileStore from "../../stores/profileStore";
+
+// BUTTONS
 import UpdateProfileButton from "../buttons/UpdateProfileButton";
+import CreateButton from "../buttons/CreateButton";
+
+// Components
+import MyTripList from "../MyTripList";
+
 import { Alert } from "react-native";
 import test2 from "../../test2.png";
-import {
-  Card,
-  CardItem,
-  Thumbnail,
-  Text,
-  Left,
-  List,
-  Right,
-  Content,
-} from "native-base";
-import profileStore from "../../stores/profileStore";
-import MyTripList from "../MyTripList";
-import CreateButton from "../buttons/CreateButton";
+import { Card, CardItem, Thumbnail, Text, Left, Right } from "native-base";
 
 const ProfileDetail = ({ navigation }) => {
   const profile = profileStore.profiles.find(
     (profile) => authStore.user.id === profile.userId
   );
-
+  console.log(profile);
   const handleSignout = async () => {
     await authStore.signout();
     navigation.replace("Signin");
-
     Alert.alert("You have Signed Out");
   };
+  console.log(authStore.user.id);
+
+  const owner = true;
 
   return (
     <>
       <Card>
+        <CardItem cardBody>
+          <ProfileSignoutBtn
+            onPress={handleSignout}
+            type="SimpleLineIcons"
+            name="logout"
+            color="#f09ae9"
+          ></ProfileSignoutBtn>
+          <Right>
+            <UpdateProfileButton profile={authStore.user} />
+            {/* <CreateButton /> */}
+          </Right>
+        </CardItem>
         <CardItem>
           <Left>
             <Thumbnail
@@ -46,24 +62,12 @@ const ProfileDetail = ({ navigation }) => {
             />
           </Left>
           <Right>
-            <Text>{authStore.user.username}</Text>
-            <Text>{profile.bio}</Text>
-          </Right>
-        </CardItem>
-        <CardItem cardBody>
-          <ProfileSignoutBtn
-            onPress={handleSignout}
-            type="SimpleLineIcons"
-            name="logout"
-            color="#f09ae9"
-          ></ProfileSignoutBtn>
-          <UpdateProfileButton profile={authStore.user} />
-          <Right>
-            <CreateButton />
+            <UsernameStyled>{authStore.user.username}</UsernameStyled>
+            <BioStyled>{profile.bio}</BioStyled>
           </Right>
         </CardItem>
       </Card>
-      <MyTripList />
+      <MyTripList owner={owner} />
     </>
   );
 };

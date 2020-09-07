@@ -2,18 +2,26 @@ import React from "react";
 import { observer } from "mobx-react";
 import { Image } from "react-native";
 import test from "../../test.jpg";
+import test2 from "../../test2.png";
 import { Card, CardItem, Thumbnail, Text, Left, Body } from "native-base";
 import { DiscoverTextStyled } from "./styles";
 
 //stores
 import tripStore from "../../stores/tripStore";
 
-const DiscoverItem = ({ trip, navigation }) => {
+const DiscoverItem = ({ trip, navigation, profile }) => {
   return (
     <Card>
       <CardItem>
         <Left>
-          <Thumbnail />
+          <Thumbnail
+            large
+            source={
+              trip.user.username.image
+                ? { uri: trip.user.username.image }
+                : test2
+            }
+          />
           <DiscoverTextStyled
             onPress={() => navigation.navigate("UserProfile", { trip: trip })}
           >

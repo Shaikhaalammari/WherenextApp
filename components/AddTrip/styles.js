@@ -1,6 +1,19 @@
 import styled from "styled-components/native";
+import { Icon } from "native-base";
+
+export const AddImageText = styled.Text`
+  color: #91d18b;
+  font-size: 17px;
+`;
+
+export const AddImageBtnStyled = styled(Icon)`
+  color: #91d18b;
+  margin-left: 100px;
+`;
 
 export const TripContainer = styled.View`
+margin-top: 60px
+margin-bottom: 30px
   flex: 1;
   align-self: stretch;
   justify-content: center;

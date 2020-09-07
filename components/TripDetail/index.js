@@ -12,8 +12,7 @@ import tripStore from "../../stores/tripStore";
 import { Thumbnail, Text } from "native-base";
 import test from "../../test.jpg";
 
-const TripDetail = ({ navigation, route }) => {
-  if (tripStore.loading) return <Spinner />;
+const TripDetail = ({ route }) => {
   const { trip } = route.params;
 
   //not sure ^^
@@ -34,19 +33,9 @@ const TripDetail = ({ navigation, route }) => {
           <BottomStyling>
             {trip.title}
             {trip.detail}
-            {trip.date}
           </BottomStyling>
         </DetailTextStyled>
       </TripDetailStyled>
-
-      {/* <MapView
-        initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
-      /> */}
     </>
   );
 };

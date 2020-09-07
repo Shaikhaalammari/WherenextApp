@@ -8,35 +8,31 @@ import {
   BottomStyling,
   ButtonStyled,
   AuthOther,
+  Title,
+  Hello,
 } from "./styles";
 
 import authStore from "../../stores/authStore";
 
-const Home = ({ navigation }) => {
-  if (authStore.user) navigation.replace("Profile");
+const Home = () => {
+  // if (authStore.user) navigation.replace("Profile");
 
   return (
     <HomeBackground
       source={{
         uri:
-          "https://i.pinimg.com/564x/4a/03/47/4a0347394515e94a245aeaa5868aaae7.jpg",
+          "https://www.pixelstalk.net/wp-content/uploads/2016/09/Flying-Airplane-Iphone-Wallpaper.jpg",
       }}
     >
       <TopStyling>
-        <Text style={{ color: "#fff", fontSize: 38, textAlign: "center" }}>
-          Where Next..?
-        </Text>
+        <Hello>
+          Hello {authStore.user ? authStore.user.username : "Guest"}, where
+          next?
+        </Hello>
       </TopStyling>
+
       <BottomStyling>
-        <ButtonStyled onPress={() => navigation.navigate("Trips")}>
-          Let's Explore!
-        </ButtonStyled>
-        <ButtonStyled onPress={() => navigation.navigate("Discovers")}>
-          Discover List ...
-        </ButtonStyled>
-        <AuthOther onPress={() => navigation.navigate("Signin")}>
-          Sign in
-        </AuthOther>
+        <Title>Discover your next trip...</Title>
       </BottomStyling>
     </HomeBackground>
   );
