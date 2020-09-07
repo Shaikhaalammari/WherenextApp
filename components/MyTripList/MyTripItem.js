@@ -1,7 +1,9 @@
 import React from "react";
 import { observer } from "mobx-react";
+import { useNavigation } from "@react-navigation/native";
 
 //styles
+
 import {
   MyTripItemStyled,
   MyTripTextStyled,
@@ -57,6 +59,8 @@ const MyTripItem = ({ trip }) => {
         </List>
       </CardItem>
     </Card>
+
+
   );
 };
 

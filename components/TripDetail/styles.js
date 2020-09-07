@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import { Icon } from "native-base";
 
 export const TripDetailStyled = styled.Text`
   color: #000000;
@@ -23,6 +24,7 @@ export const BottomStyling = styled.Text`
 
 export const TopStyling = styled.View`
   height: 40%;
+  margin-top: 100px;
   align-items: center;
   justify-content: center;
 `;
