@@ -4,7 +4,7 @@ import { Image } from "react-native";
 import test from "../../test.jpg";
 import test2 from "../../test2.png";
 import { Card, CardItem, Thumbnail, Text, Left, Body } from "native-base";
-import { DiscoverTextStyled } from "./styles";
+import { DiscoverTextStyled, DiscoverTripTitle } from "./styles";
 
 //stores
 import tripStore from "../../stores/tripStore";
@@ -12,7 +12,7 @@ import tripStore from "../../stores/tripStore";
 const DiscoverItem = ({ trip, navigation, profile }) => {
   return (
     <Card>
-      <CardItem>
+      <CardItem style={{ backgroundColor: "#FBF9F3" }}>
         <Left>
           <Thumbnail
             large
@@ -28,11 +28,11 @@ const DiscoverItem = ({ trip, navigation, profile }) => {
             {trip.user.username}
           </DiscoverTextStyled>
           <Body>
-            <Text
+            <DiscoverTripTitle
               onPress={() => navigation.navigate("TripDetail", { trip: trip })}
             >
               {trip.title}
-            </Text>
+            </DiscoverTripTitle>
           </Body>
         </Left>
       </CardItem>

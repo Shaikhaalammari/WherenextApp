@@ -20,7 +20,7 @@ const DiscoverList = ({ navigation }) => {
         <DiscoverItem trip={trip} key={trip.id} navigation={navigation} />
       ));
   return (
-    <Container>
+    <Container style={{ backgroundColor: "#323846" }}>
       <Content>
         <List>{discoverList}</List>
       </Content>
