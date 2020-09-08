@@ -89,7 +89,7 @@ const UpdateProfile = ({ navigation, route }) => {
       <TripTextInput
         onChangeText={(value) => setProfile({ ...profile, bio: value })}
         placeholder="bio"
-        placeholderTextColor="#99b898"
+        placeholderTextColor="#c3f7eb"
         value={profile.bio}
       />
       {/* <TripTextInput

@@ -6,7 +6,7 @@ export const DiscoverContainer = styled.View`
   align-self: stretch;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
+  background-color: #88d9f3;
   padding-right: 60px;
   padding-left: 60px;
 `;
@@ -30,20 +30,29 @@ export const DiscoverTextInput = styled.TextInput`
 
 export const AuthOther = styled.Text`
   color: #99b898;
-  margin-top: 15px;
+  margin-top: 15pxpx;
 `;
 
 export const DiscoverItemStyled = styled.Text`
   color: #000000;
-  font-size: 18;
-  margin-top: 20;
-  margin-bottom: 10;
-  margin-left: 10;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 10px;
 `;
 
 export const DiscoverTextStyled = styled.Text`
   text-align: center;
-  color: #99b898;
+  color: #323846;
+  font-size: 20px;
+  margin-left: 20px;
+`;
+
+export const DiscoverTripTitle = styled.Text`
+  text-align: center;
+  color: #88d9f3;
+  font-size: 40px;
+  margin-right: 10px;
 `;
 
 export const TrashIcon = styled(Icon)`

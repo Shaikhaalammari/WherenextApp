@@ -88,13 +88,13 @@ const UpdateTrip = ({ navigation, route }) => {
       <TripTextInput
         onChangeText={(value) => setTrip({ ...trip, title: value })}
         placeholder="Title"
-        placeholderTextColor="#99b898"
+        placeholderTextColor="#c3f7eb"
         value={trip.title}
       />
       <TripTextInput
         onChangeText={(value) => setTrip({ ...trip, detail: value })}
         placeholder="Detail"
-        placeholderTextColor="#99b898"
+        placeholderTextColor="#c3f7eb"
       />
       {/* <TripTextInput
         onChangeText={(value) => setTrip({ ...trip, image: value })}

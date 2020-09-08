@@ -48,7 +48,7 @@ export const MyTripItemStyled = styled.Text`
 `;
 
 export const CardWrapping = styled.Text`
-  box-shadow: 3px 3px #99b898;
+  box-shadow: 3px 3px #323846;
   margin-top: 5px;
   margin-left: 10px;
 `;

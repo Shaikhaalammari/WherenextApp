@@ -10,6 +10,13 @@ import { Thumbnail, Card, CardItem, List } from "native-base";
 //Data
 import test from "../../test.jpg";
 
+
+// Buttons
+import UpdateButton from "../buttons/UpdateButton";
+import DeleteButton from "../buttons/DeleteButton";
+import UpdateTrip from "../UpdateTrip";
+
+
 const MyTripItem = ({ trip }) => {
   const navigation = useNavigation();
 

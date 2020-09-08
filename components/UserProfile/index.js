@@ -17,6 +17,7 @@ import {
 import profileStore from "../../stores/profileStore";
 import MyTripList from "../MyTripList";
 import MyTripItem from "../MyTripList/MyTripItem";
+import { UserName } from "./styles";
 
 //WORKED
 const UserProfile = ({ navigation, route }) => {
@@ -36,7 +37,7 @@ const UserProfile = ({ navigation, route }) => {
             />
           </Left>
           <Right>
-            <Text>{trip.user.username}</Text>
+            <UserName>{trip.user.username}</UserName>
             <Text>{profile.bio}</Text>
           </Right>
         </CardItem>
