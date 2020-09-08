@@ -4,33 +4,11 @@ import { useNavigation } from "@react-navigation/native";
 
 //styles
 
-import {
-  MyTripItemStyled,
-  MyTripTextStyled,
-  ButtonsStyle,
-  CardWrapping,
-  Backgroundcolor,
-} from "./styles";
-import {
-  Thumbnail,
-  Right,
-  Row,
-  Card,
-  CardItem,
-  List,
-  Body,
-  Text,
-} from "native-base";
-import { ColumnWrapperStyle, ImageBackground, ScrollView } from "react-native";
+import { MyTripItemStyled, MyTripTextStyled, CardWrapping } from "./styles";
+import { Thumbnail, Card, CardItem, List } from "native-base";
 
 //Data
 import test from "../../test.jpg";
-
-// Buttons
-import UpdateButton from "../buttons/UpdateButton";
-import DeleteButton from "../buttons/DeleteButton";
-import UpdateTrip from "../UpdateTrip";
-import { useNavigation } from "@react-navigation/native";
 
 const MyTripItem = ({ trip }) => {
   const navigation = useNavigation();
@@ -59,8 +37,6 @@ const MyTripItem = ({ trip }) => {
         </List>
       </CardItem>
     </Card>
-
-
   );
 };
 

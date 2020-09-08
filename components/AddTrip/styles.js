@@ -12,8 +12,8 @@ export const AddImageBtnStyled = styled(Icon)`
 `;
 
 export const TripContainer = styled.View`
-margin-top: 60px
-margin-bottom: 30px
+  margin-top: 60px;
+  margin-bottom: 30px;
   flex: 1;
   align-self: stretch;
   justify-content: center;
@@ -50,7 +50,6 @@ export const AddButton = styled.TouchableOpacity`
 
 export const AddButtonText = styled.Text`
   color: #838383;
-
   font-size: 18px;
 `;
 

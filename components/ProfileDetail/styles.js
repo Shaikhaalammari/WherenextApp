@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { Icon, Thumbnail } from "native-base";
+import { Icon } from "native-base";
 
 export const Backgroundcolor = styled.View`
   background-color: #557c83;
