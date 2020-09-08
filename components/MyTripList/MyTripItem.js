@@ -30,7 +30,6 @@ import test from "../../test.jpg";
 import UpdateButton from "../buttons/UpdateButton";
 import DeleteButton from "../buttons/DeleteButton";
 import UpdateTrip from "../UpdateTrip";
-import { useNavigation } from "@react-navigation/native";
 
 const MyTripItem = ({ trip }) => {
   const navigation = useNavigation();
@@ -59,8 +58,6 @@ const MyTripItem = ({ trip }) => {
         </List>
       </CardItem>
     </Card>
-
-
   );
 };
 

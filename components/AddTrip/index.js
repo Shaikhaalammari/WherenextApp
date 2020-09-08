@@ -84,7 +84,7 @@ const AddTrip = ({ navigation }) => {
       <TripTextInput
         onChangeText={(value) => setTrip({ ...trip, title: value })}
         placeholder="Title"
-        placeholderTextColor="#99b898"
+        placeholderTextColor="#c3f7eb"
       />
       {/* <TripTextInput
         onChangeText={(value) => setTrip({ ...trip, date: value })}
@@ -94,7 +94,7 @@ const AddTrip = ({ navigation }) => {
       <TripTextInput
         onChangeText={(value) => setTrip({ ...trip, detail: value })}
         placeholder="Detail"
-        placeholderTextColor="#99b898"
+        placeholderTextColor="#c3f7eb"
       />
       {/* <TripTextInput
         onChangeText={(value) => setTrip({ ...trip, image: value })}

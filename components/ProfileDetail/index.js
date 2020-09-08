@@ -23,10 +23,19 @@ import MyTripList from "../MyTripList";
 
 import { Alert } from "react-native";
 import test2 from "../../test2.png";
-import { Card, CardItem, Thumbnail, Text, Left, Right } from "native-base";
+import {
+  Card,
+  CardItem,
+  Thumbnail,
+  Text,
+  Left,
+  Right,
+  Spinner,
+} from "native-base";
 import { Backgroundcolor } from "../MyTripList/styles";
 
 const ProfileDetail = ({ navigation }) => {
+  if (!authStore.user) return <Spinner />;
   const profile = profileStore.profiles.find(
     (profile) => authStore.user.id === profile.userId
   );
