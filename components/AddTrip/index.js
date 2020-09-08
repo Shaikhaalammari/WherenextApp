@@ -86,21 +86,11 @@ const AddTrip = ({ navigation }) => {
         placeholder="Title"
         placeholderTextColor="#c3f7eb"
       />
-      {/* <TripTextInput
-        onChangeText={(value) => setTrip({ ...trip, date: value })}
-        placeholder="Date"
-        placeholderTextColor="#99b898"
-      /> */}
       <TripTextInput
         onChangeText={(value) => setTrip({ ...trip, detail: value })}
         placeholder="Detail"
         placeholderTextColor="#c3f7eb"
       />
-      {/* <TripTextInput
-        onChangeText={(value) => setTrip({ ...trip, image: value })}
-        placeholder="Image"
-        placeholderTextColor="#99b898"
-      /> */}
 
       <AddImageText>Add an image</AddImageText>
       <AddImageBtnStyled

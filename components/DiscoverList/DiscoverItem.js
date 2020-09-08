@@ -6,10 +6,7 @@ import test2 from "../../test2.png";
 import { Card, CardItem, Thumbnail, Text, Left, Body } from "native-base";
 import { DiscoverTextStyled, DiscoverTripTitle } from "./styles";
 
-//stores
-import tripStore from "../../stores/tripStore";
-
-const DiscoverItem = ({ trip, navigation, profile }) => {
+const DiscoverItem = ({ trip, navigation }) => {
   return (
     <Card>
       <CardItem style={{ backgroundColor: "#FBF9F3" }}>

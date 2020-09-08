@@ -48,7 +48,6 @@ export const AuthButton = styled.TouchableOpacity`
 
 export const AuthButtonText = styled.Text`
   color: #838383;
-
   font-size: 18px;
 `;
 
