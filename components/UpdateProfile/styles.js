@@ -2,12 +2,12 @@ import styled from "styled-components/native";
 import { Icon } from "native-base";
 
 export const AddImageText = styled.Text`
-  color: #91d18b;
+  color: #c3f7eb;
   font-size: 17px;
 `;
 
 export const AddImageBtnStyled = styled(Icon)`
-  color: #91d18b;
+  color: #c3f7eb;
   margin-top: 10px;
 `;
 
@@ -16,13 +16,13 @@ export const TripContainer = styled.View`
   align-self: stretch;
   justify-content: center;
   align-items: center;
-  background-color: #ffffff;
+  background-color: #323846;
   padding-right: 60px;
   padding-left: 60px;
 `;
 
 export const TripTitle = styled.Text`
-  color: #838383;
+  color: #c3f7eb;
   font-size: 24px;
   margin-bottom: 20px;
   border-bottom-color: #91d18b;
@@ -33,7 +33,7 @@ export const TripTextInput = styled.TextInput`
   text-align: left;
   height: 40px;
   margin-bottom: 30px;
-  color: #3b6978;
+  color: #c3f7eb;
   border-bottom-color: #3b6978;
   border-bottom-width: 1px;
 `;
@@ -50,7 +50,7 @@ export const UpdateButton = styled.TouchableOpacity`
   align-self: stretch;
   align-items: center;
   padding: 20px;
-  background-color: #cfe5cf;
+  background-color: #c3f7eb;
   margin-top: 30px;
 `;
 
@@ -61,7 +61,7 @@ export const UpdateButtonText = styled.Text`
 `;
 
 export const AddButtonText = styled.Text`
-  color: #838383;
+  color: #c3f7eb;
 
   font-size: 18px;
 `;
