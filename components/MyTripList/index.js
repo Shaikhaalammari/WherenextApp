@@ -1,5 +1,5 @@
 import React from "react";
-import { List, Content, Spinner, Right } from "native-base";
+import { List, Content, Spinner, Right, Text } from "native-base";
 import { observer } from "mobx-react";
 import { useNavigation } from "@react-navigation/native";
 
@@ -30,9 +30,7 @@ const MyTripList = ({ owner, profile, trip }) => {
   return (
     <Backgroundcolor>
       <Content>
-        <Right>
-          <CreateButton />
-        </Right>
+        <Right>{owner ? <CreateButton /> : <Text></Text>}</Right>
         <List>{userList}</List>
       </Content>
     </Backgroundcolor>

@@ -7,7 +7,7 @@ export const AddButtonStyled = styled(Icon)`
 `;
 
 export const UpdateButtonStyled = styled(Icon)`
-  color: #91d18b;
+  color: #c3f7eb;
 `;
 export const EditProfileStyled = styled.Text`
   color: #88d9f3;

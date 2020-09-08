@@ -6,4 +6,5 @@ export const UserName = styled.Text`
   font-size: 40px;
   margin-right: 100px;
   margin-top: 70px;
+  width: 150px;
 `;

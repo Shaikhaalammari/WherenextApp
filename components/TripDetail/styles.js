@@ -1,17 +1,18 @@
 import styled from "styled-components/native";
 import { Icon } from "native-base";
 
-export const TripDetailStyled = styled.Text`
+export const TripDetailStyled = styled.View`
+  background-color: #323846;
   color: #000000;
   font-size: 18px;
-  margin-top: 100px;
-  margin-bottom: 10px;
-  margin-left: 10px;
+  margin-top: 60px;
+  height: 100%;
 `;
 
 export const DetailTextStyled = styled.Text`
   text-align: center;
   color: #99b898;
+  margin-top: 60px;
 `;
 
 export const BottomStyling = styled.Text`
@@ -19,7 +20,8 @@ export const BottomStyling = styled.Text`
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #99b898;
+  color: #c3f7eb;
+  font-size: 20px;
 `;
 
 export const TopStyling = styled.View`
